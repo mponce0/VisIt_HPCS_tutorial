@@ -1,0 +1,123 @@
+\documentclass[dvipsnames]{beamer}
+%\documentclass[dvipsnames,handout,draft]{beamer}
+
+%\includeonly{introstorage}
+%\includeonly{performancetuning}
+%\includeonly{fileformats}
+%\includeonly{datamanagement}
+%\includeonly{conclusions}
+
+\input{setup.tex}
+
+\usepackage{verbatim}
+\usepackage{listings}
+
+%\providecommand{\sectionpage}{\Large\centering Section \thesection\par\ \vspace{-2mm}\\ \bf\mediumblue\insertsection}
+\providecommand{\sectionpage}{\Large\centering \bf\mediumblue\insertsection}
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[VisIt Workshop]{\Large\bf Scientific Visualization using VisIt}
+\author[\textbf{A.Razoumov} \& \textbf{M.Ponce}]{\Large Alex Razoumov and Marcelo Ponce}
+\date[HPCS 2016]{HPCS 2016 -- June 20th, 2016}
+\institute[WestGrid/SciNet]{\includegraphics[width=0.45\columnwidth]{./logos/WG-Logo-Jan16}\hspace{1cm}\includegraphics[width=0.325\columnwidth]{./logos/SciNet_newLogo}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Outline of the workshop}
+\vspace{-3.5mm}
+\begin{columns}
+\begin{column}{5.5cm}
+  \begin{block}{Topics to cover:}
+    \begin{itemize}\itemsep3pt
+	\item A quick introduction to Visualization \& VisIt
+	\item GUIs overview
+	\item accessing data and managing files
+	\item client/server visualization
+	\item working with plots%: overview, pseudocolour, mesh, filled boundary, boundary, contour, volume, vector, subset, streamline, curve, histogram, lable, molecule, truecolour, scatter, spreadsheet, parallel coordinates
+	%\item using the visualization window
+	\item viz pipeline: working with operators%: overview, slice, reflect, clip, transform, data binning, threshold, isosurface, isovolume, elevate, replicate, resample, displace, index select, box, three slice, cylinder, inverse ghost zone, spherical slice
+	\item interactive tools%: box, line, plane, sphere, point, axis restriction
+	%\item subsets
+	\item quantitative analysis
+	%\item making it pretty
+	\item animation and keyframing
+	\item scripting 
+    \end{itemize}
+  \end{block}
+\end{column}
+\begin{column}{5.5cm}
+  \begin{block}{Table of Contents}\itemsep5pt
+	\tableofcontents%[currentsection,currentsubsection]
+  \end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%mp
+\section{Introduction to Visualization}
+\frame{\sectionpage}
+\include{introviz}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%mp
+\section{VisIt: an Overview}
+\frame{\sectionpage}
+\include{visitGral}
+% includes the following topics:
+% - introduction and VisIt's GUI overview
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%mp
+\section{VisIt: Basic Visualization Tools}
+\frame{\sectionpage}
+\include{visitBasics}
+% includes the following topics:
+% - accessing data and managing files
+% - working with plots
+% - working with operators
+% - interactive tools
+% - plots, selections, exporting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%??
+\section{VisIt: Quantitative Analysis}
+\frame{\sectionpage}
+\include{visitQuantAn}
+% includes the following topics:
+% - subsets (maybe)
+% - quantitative analysis
+% - data comparison
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ar
+\section{VisIt: Proffesional Quality Plots \& Movies Generation}
+\frame{\sectionpage}
+\include{visitMovies}
+% includes the following topics:
+% - making it pretty
+% - animation and keyframing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%??
+\section{VisIt \textsc{Adv}: Distributed Visualization}
+\frame{\sectionpage}
+\include{visitDistributed}
+% includes the following topics:
+% - overview of client/server visualization
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%??
+\section{VisIt \textsc{Adv}: Scripting with Python}
+\frame{\sectionpage}
+\include{visitQuantAn}
+% includes the following topics:
+% - scripting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary}
+\frame{\sectionpage}
+\include{summary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document} 
