@@ -1,0 +1,138 @@
+\mode<presentation>{
+  \usetheme{Madrid}
+  \setbeamertemplate{navigation symbols}{} % suppress nav bar
+%\logo{\pichere{\put(-55,-5){\includegraphics[scale=0.1]{scinet-logo.png}}}}
+\logo{\pichere{\put(-50,-8){\includegraphics[scale=0.45]{logos/hpcs2016}}}}
+%\usecolortheme[named=RoyalBlue]{structure}
+%\setbeamercolor*{alerted text}{fg=RoyalBlue}
+\setbeamercolor*{alerted text}{fg=Blue}
+}
+
+\newcommand{\continue}{}
+
+
+% set bold tt and math fonts
+\font\ttbf = cmbtt10
+\font\ttit = cmitt10
+\font\ttrm = cmtt10
+\let\tt=\ttbf
+\boldmath
+
+%command for "some identifier": an italic tt type
+%\newcommand{\some}[1]{{\ttit #1}}
+\newcommand{\some}[1]{{\ttrm #1}}
+\newcommand{\dollar}{\mbox{\tt\small\$}}
+
+%colors in code: ways to color
+%\newcommand{\ftype}[1]   {\textcolor{OliveGreen}{\tt #1}} %for types
+%\newcommand{\fns}[1]     {\textcolor{MidnightBlue}{#1}}   %for namespaces
+%\newcommand{\fprec}[1]   {\textcolor{cyan}{#1}}           %for preprocessor   
+%\newcommand{\fintr}[1]   {\textcolor{RedViolet}{#1}}      %for intrinsic keywords
+%\newcommand{\fcomm}[1]   {\textcolor{MidnightBlue}{#1}}   %for comments
+%\newcommand{\literal}[1] {\textcolor{brown}{#1}}          %for literals
+%\newcommand{\fstring}[1] {\literal{"#1"}}                 %for strings
+%keywords
+\newcommand{\cunsigned}  {\ftype{unsigned}}
+\newcommand{\cint}       {\ftype{int }}
+\newcommand{\cvoid}      {\ftype{void }}
+\newcommand{\clong}      {\ftype{long }}
+\newcommand{\cshort}     {\ftype{short }}
+\newcommand{\cfloat}     {\ftype{float }}
+\newcommand{\cdouble}    {\ftype{double }}
+\newcommand{\cchar}         {\ftype{char }}
+\newcommand{\creturn}       {\fintr{\tt return }}
+\newcommand{\cstruct}       {\fintr{\tt struct }}
+\newcommand{\cenum}         {\fintr{\tt enum }}
+\newcommand{\cunion}        {\fintr{\tt union }}
+\newcommand{\cclass}        {\fintr{\tt class }}
+\newcommand{\ctypedef}      {\fintr{\tt typedef }}
+\newcommand{\cif}           {\fintr{\tt if }}
+\newcommand{\celse}         {\fintr{\tt else }}
+\newcommand{\cfor}          {\fintr{\tt for }}
+\newcommand{\cnew}          {\fintr{\tt new }}
+\newcommand{\cdelete}       {\fintr{\tt delete }}
+\newcommand{\cswitch}       {\fintr{\tt switch }}
+\newcommand{\ccase}         {\fintr{\tt case }}
+\newcommand{\cdefault}      {\fintr{\tt default}}
+\newcommand{\cbreak}        {\fintr{\tt break}}
+\newcommand{\cwhile}        {\fintr{\tt while }}
+\newcommand{\cdo}           {\fintr{\tt do }}
+\newcommand{\cfriend}       {\fintr{\tt friend }}
+\newcommand{\cvirtual}      {\fintr{\tt virtual }}
+\newcommand{\cprivate}[1]   {\fintr{\tt private#1}}
+\newcommand{\cpublic}[1]    {\fintr{\tt public#1}}
+\newcommand{\cprotected}[1] {\fintr{\tt protected#1}}
+\newcommand{\cpoundincludebrackets}[1]{\fprec{\tt\#include \literal{<#1>}}}
+\newcommand{\cpoundinclude}[1]{\fprec{\tt\#include \literal{"#1"}}}
+
+\input{auxs/mycolours}
+%\input{auxs/shellnewcommands}
+%\input{auxs/cppnewcommands}
+%\input{auxs/lstsettings}
+
+
+%a tabbed code environment in  box:
+%sample:
+%\begin{code}
+%   int main() 
+%  \begin{bracing}
+%      int z = 0;
+%      for (int i=0;i<60;i++)
+%      \begin{tab}
+%             z+=i;
+%      \end{tab}
+%   \end{bracing}
+%\end{code}
+\usepackage{setspace}
+\xdefinecolor{headerbgcolor} {rgb}  {0.84, 0.84, 0.94}
+\newlength{\tbl}\tbl0pc
+\newenvironment{tab}
+{\par\addtolength\tbl{1.2pc}\leftskip\tbl\tt}
+{\addtolength\tbl{-1.2pc}\par\leftskip\tbl\rm}
+\newenvironment{bracing}{{\scriptsize$\{$}\begin{tab}}{\end{tab}{\scriptsize$\}$}}
+
+\makeatletter
+\newenvironment{code}
+{\begin{lrbox}{\@tempboxa}\begin{minipage}{0.92\columnwidth}\setstretch{0.85} \tt \setlength{\rightskip}{-0.4pc}}
+{\end{minipage}\end{lrbox}\par\centerline{\colorbox{headerbgcolor}{\colorbox{white}{\usebox{\@tempboxa}}}}\vspace{1mm}}
+\makeatother
+
+%puts a zero-sized picture command at the current point
+\newcommand{\pichere}[1]{\begin{picture}(0,0)\thicklines #1\end{picture}}
+
+%a block for gotcha's
+\newenvironment{gotcha}[1][]{\begin{block}{\color{Yellow}Gotcha: #1}}{\end{block}}
+
+%\colorbox{#1}{\textcolor{#2}
+
+\newcommand{\mediumblue}{\color{Blue}}
+\newcommand{\black}{\color{Black}}
+\newcommand{\restpointslide}[1]{
+  \frame{
+    \begin{quote}
+      \Large\bf\mediumblue #1
+    \end{quote}
+  }
+}
+
+\newenvironment{examplesegment}{\setbeamercolor{frametitle}{bg=ForestGreen}
+\setbeamercolor{block title}{bg=ForestGreen}
+\setbeamercolor*{alerted text}{fg=Black}
+\setbeamerfont{alerted text}{series=\bfseries}
+\renewcommand{\mediumblue}{\color{ForestGreen}}}
+{\setbeamercolor{frametitle}{bg=Blue}
+\setbeamercolor{block title}{bg=Blue}
+\setbeamercolor*{alerted text}{fg=Blue}
+\setbeamerfont{alerted text}{series=\rmseries}
+\renewcommand{\mediumblue}{\color{Blue}}}
+
+\newenvironment{handsonsegment}{\setbeamercolor{frametitle}{bg=OrangeRed}
+\setbeamercolor{block title}{bg=OrangeRed}
+\setbeamercolor*{alerted text}{fg=Black}
+\setbeamerfont{alerted text}{series=\bfseries}
+\renewcommand{\mediumblue}{\color{OrangeRed}}}
+{\setbeamercolor{frametitle}{bg=Blue}
+\setbeamercolor{block title}{bg=Blue}
+\setbeamercolor*{alerted text}{fg=Blue}
+\setbeamerfont{alerted text}{series=\rmseries}
+\renewcommand{\mediumblue}{\color{Blue}}}
