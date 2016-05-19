@@ -4,6 +4,7 @@ TARGET=$(NAME).pdf
 SOURCE=$(NAME).tex
 
 JUNK=.aux .bbl .blg .dvi .log .nav .out .ps .pdf .snm .tex.backup .tex.bak .toc Notes.bib
+junk2=.aux .bbl .blg .dvi .log .nav .out .ps .snm .tex.backup .tex.bak .toc Notes.bib
 
 .PHONY: clean
 
@@ -18,6 +19,11 @@ all: $(TARGET)
 clean:
 	@for ext in $(JUNK); do \
 		rm -v $(NAME)$$ext; \
+	done
+
+softclean:
+	@for ext in $(junk2); do \
+		rm -v *$$ext; \
 	done
 
 realclean:
