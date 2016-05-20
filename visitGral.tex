@@ -14,6 +14,7 @@
 \vspace{-3.5mm}
 \begin{columns}%[T]
 \begin{column}{7.65cm}
+\vspace{-2mm}
 \href{https://wci.llnl.gov/simulation/computer-codes/visit}{\textcolor{DarkBlue}{\small\tt https://wci.llnl.gov/simulation/computer-codes/visit}}
 
 \href{http://visit.llnl.gov/}{\textcolor{DarkBlue}{\tt http://visit.llnl.gov/}}
@@ -22,9 +23,9 @@
 \begin{itemize}
         \item Developed by the \textit{DOE Advanced Simulation and Computing Initiative}, %(ASCI)
  to visualize results of terascale simulations, first release fall of 2002 -- mantained by \textit{LLNL}
-        \item \textcolor{DarkRed}{v2.10} \href{https://wci.llnl.gov/simulation/computer-codes/visit/downloads}{available as source and binary for \textcolor{DarkBlue}{Linux/Mac/Windows}}
+        \item \textcolor{DarkRed}{v2.10.2} \href{https://wci.llnl.gov/simulation/computer-codes/visit/downloads}{available as source and binary for \textcolor{DarkBlue}{Linux/Mac/Windows}}
         \item Over 80 visualization features (contour, mesh, slice, volume, molecule, ...)
-        \item Reads over 110 different file formats
+        %\item Reads over 120 different file formats (\ding{223} \href{http://www.visitusers.org/index.php?title=Detailed_list_of_file_formats_VisIt_supports}{\small detailed list of file formats})
         \item Interfaces with C++, Python, and Java
         \item Uses MPI for \textcolor{DarkBlue}{distributed-memory parallelism} on HPC clusters
 \end{itemize}
@@ -57,7 +58,7 @@
 \begin{itemize}
         \item can run: locally, remotelly, client/server mode
         \item interface pretty much looks the same on each platform
-        \item can read over a 100 different data formats
+        \item can read over a 120 different data formats (\ding{223} \href{http://www.visitusers.org/index.php?title=Detailed_list_of_file_formats_VisIt_supports}{\small detailed list of file formats})
         \item new database plugin readers can be developed
 \end{itemize}
 \pause
@@ -103,6 +104,7 @@
 \end{frame}
 
 
+\subsection{GUIs}
 \begin{frame}
 \frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.875cm]{figs/visit-logos/VisIt-02}} {\bf \textcolor{lightgray}{VisIt}}}: GUI}
 
@@ -144,4 +146,102 @@
 \end{columns}
 \end{frame}
 
+
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-03}} \hspace{-.85cm}{\bf \textcolor{lightgray}{VisIt}}: GUIs}
+
+\begin{columns}
+\begin{column}{5cm}
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{\ding{224}  \textcolor{DarkRed}{Main window in GUI} }
+
+        \textcolor{DarkRed}{\ding{223}} Access other important windows
+
+        \textcolor{DarkRed}{\ding{223}} Open files
+
+        \textcolor{DarkRed}{\ding{223}} Set animation time state
+
+        \textcolor{DarkRed}{\ding{223}} Set active window
+
+        \textcolor{DarkRed}{\ding{223}} Create and manage filters (pipeline)
+
+        \textcolor{DarkRed}{\ding{223}} Displays progress from compute engine
+\end{beamerboxesrounded}
+
+\pause
+\vspace{1mm}
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{\ding{231} Really useful ones}
+        \hspace{1.25mm}
+        \textcolor{DarkBlue}{\ding{232} Apply to... } check-boxes
+\end{beamerboxesrounded}
+\end{column}
+\begin{column}{6cm}
+        \centering
+        \includegraphics[clip=true,trim=0 0 17cm 0, width=.85\columnwidth]{figs/visit-guis/VisIt_windows}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-04}} \hspace{-.85cm}{\bf \textcolor{white}{VisIt}}: GUIs}
+
+\vspace{-3mm}
+\begin{columns}
+\begin{column}{5cm}
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{\ding{224}  \textcolor{DarkBlue}{Main Menu} }
+
+        \textcolor{DarkBlue}{\ding{223}} \framebox{File}
+
+        \textcolor{DarkBlue}{\ding{223}} \framebox{Controls}
+
+        \textcolor{DarkBlue}{\ding{223}} \framebox{Options}
+
+        \textcolor{DarkBlue}{\ding{223}} \framebox{Windows}
+
+        \textcolor{DarkBlue}{\ding{223}} \framebox{Plot Attributes}
+
+        \textcolor{DarkBlue}{\ding{223}} \framebox{Operator Attributes}
+
+        \textcolor{DarkBlue}{\ding{223}} \framebox{Help}
+\end{beamerboxesrounded}
+\end{column}
+\begin{column}{6cm}
+        \centering
+        \includegraphics[clip=true,trim=0 0 17cm 0, width=.85\columnwidth]{figs/visit-guis/VisIt_windows}
+\end{column}
+\end{columns}
+
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{\ding{224}  \textcolor{DarkBlue}{Visualization Toolbar} }
+        \centering
+        \includegraphics[width=.85\columnwidth]{figs/visit-guis/VisIt_toolbar}
+\end{beamerboxesrounded}
+\end{frame}
+
+
+\subsection{Viz Pipeline}
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-01}} \hspace{-.85cm}{\bf \textcolor{lightgray}{VisIt}}: Visualization Pipeline}
+
+\begin{columns}
+\begin{column}{5cm}
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
+\begin{enumerate}
+        \item Open database (or file)
+        \item Create a plot
+        \item Set plot attributes
+        \item Apply operators to plot to modify data
+        \item Set operator attributes
+        \item Compute engine generates plot
+        \item Plot displayed in vis window
+        \item iterate//repeat...
+\end{enumerate}
+\end{beamerboxesrounded}
+\end{column}
+\begin{column}{6cm}
+        \centering
+        \includegraphics[width=.85\columnwidth]{figs/viz/viz-pipeline4}
+\end{column}
+\end{columns}
+
+\end{frame}
 
