@@ -1,6 +1,4 @@
-
-
-\section{Scientific Visualization}
+%\section{Scientific Visualization}
 \subsection{Generalities}
 \begin{frame}
     \frametitle{Scientific Visualization}
@@ -19,21 +17,21 @@
         \end{itemize}
 
         \centering
-        \includegraphics[width=.5\columnwidth]{plots/mpc/figure3_B}
+        \includegraphics[width=.5\columnwidth]{figs/plots/mpc/figure3_B}
 
-        \includegraphics[width=0.33\columnwidth]{plots/mpc/bns01_UU-sqphi2_3d-14b}
-        \includegraphics[width=0.33\columnwidth]{plots/mpc/bns02_Uu-sqphi2_3d-14c}
-        \includegraphics[width=0.33\columnwidth]{plots/mpc/bns03_UD-sqphi2_3d-14b}
+        \includegraphics[width=0.33\columnwidth]{figs/plots/mpc/bns01_UU-sqphi2_3d-14b}
+        \includegraphics[width=0.33\columnwidth]{figs/plots/mpc/bns02_Uu-sqphi2_3d-14c}
+        \includegraphics[width=0.33\columnwidth]{figs/plots/mpc/bns03_UD-sqphi2_3d-14b}
     \end{column}
     \begin{column}{7.5cm}
-        \includegraphics[width=\columnwidth,clip=true,trim=0 4cm 0 4cm]{plots/mpc/plot_Bxi}
+        \includegraphics[width=\columnwidth,clip=true,trim=0 4cm 0 4cm]{figs/plots/mpc/plot_Bxi}
         %
-        %\includegraphics[width=\columnwidth]{plots/mpc/figure1_c}
+        %\includegraphics[width=\columnwidth]{figs/plots/mpc/figure1_c}
         \\
-        \includegraphics[width=\columnwidth]{plots/mpc/plot_current}
+        \includegraphics[width=\columnwidth]{figs/plots/mpc/plot_current}
         \\
-        %\href{http://journals.aps.org/prd/kaleidoscope/}{\includegraphics[width=\columnwidth, clip=true,trim=1.25cm 3.5mm 3.5mm 19.75cm]{plots/mpc/kaleidoscope}
-        \href{http://journals.aps.org/prd/kaleidoscope/August2014}{\includegraphics[width=\columnwidth]{plots/mpc/kaleidoscope_aug2014}}
+        %\href{http://journals.aps.org/prd/kaleidoscope/}{\includegraphics[width=\columnwidth, clip=true,trim=1.25cm 3.5mm 3.5mm 19.75cm]{figs/plots/mpc/kaleidoscope}
+        \href{http://journals.aps.org/prd/kaleidoscope/August2014}{\includegraphics[width=\columnwidth]{figs/plots/mpc/kaleidoscope_aug2014}}
     \end{column}
     \end{columns}
 \end{frame}
@@ -47,20 +45,20 @@
     \begin{columns} %[T]
     \begin{column}{5.25cm}
         \begin{itemize}
-                \item \textcolor{DarkBlue}{Visualization} is the process of mapping scientific data into ``{\it visual form}''
+                \item \textcolor{DarkBlue}{Visualization} is the process of mapping (scientific) data into ``{\it visual form}''
                 \item Much easier to understand images than a large set of numbers
                 \item For interactive data exploration, debugging, communication with peers
         \end{itemize}
     \end{column}
     \begin{column}{7cm}
-        \href{http://www.paraview.org/gallery/}{\includegraphics[width=.475\columnwidth]{figs/ParaView-gallery01}}
-        \href{http://www.paraview.org/gallery/}{\includegraphics[width=.475\columnwidth]{figs/ParaView-gallery03}}
+        \href{http://www.paraview.org/gallery/}{\includegraphics[width=.475\columnwidth]{figs/paraview/ParaView-gallery01}}
+        \href{http://www.paraview.org/gallery/}{\includegraphics[width=.475\columnwidth]{figs/paraview/ParaView-gallery03}}
         \centering
-        \href{http://www.paraview.org}{\includegraphics[width=.45\columnwidth]{./figs/visit-logos//ParaViewLogo}}
+        \href{http://www.paraview.org}{\includegraphics[width=.45\columnwidth]{./figs/visit-logos/ParaViewLogo}}
 
 
-        \href{https://wci.llnl.gov/simulation/computer-codes/visit/gallery}{\includegraphics[width=.475\columnwidth]{figs/VisIt-gallery_12}}
-        \href{https://wci.llnl.gov/simulation/computer-codes/visit/gallery}{\includegraphics[width=.475\columnwidth]{figs/VisIt-gallery_15}}
+        \href{https://wci.llnl.gov/simulation/computer-codes/visit/gallery}{\includegraphics[width=.475\columnwidth]{figs/visit-exs/VisIt-gallery_12}}
+        \href{https://wci.llnl.gov/simulation/computer-codes/visit/gallery}{\includegraphics[width=.475\columnwidth]{figs/visit-exs/VisIt-gallery_15}}
 
         \centering
         \href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[width=.45\columnwidth, clip=true,trim=0 2cm 0 0]{./figs/visit-logos//VisIt26}}
@@ -93,7 +91,7 @@
 \end{column}
 \begin{column}{5cm}
         \centering
-        \includegraphics[width=.85\columnwidth]{plots/xmgr/silver_2plots}
+        \includegraphics[width=.85\columnwidth]{figs/plots/others/silver_2plots}
 \end{column}
 \end{columns}
 
@@ -106,7 +104,7 @@ some topology in 2D/3D)
 \end{beamerboxesrounded}
 \end{column}
 \begin{column}{5cm}
-        \includegraphics[width=1.1\columnwidth]{figs/others/pm3dplot}
+        \includegraphics[width=1.1\columnwidth]{figs/plots/others/pm3dplot}
 \end{column}
 \end{columns}
 
@@ -274,5 +272,47 @@ data, \textcolor{DarkBlue}{irregular topologies}
 \end{column}
 \end{columns}
 \end{small}
+\end{frame}
+
+
+
+\subsection{VTK: Visualization ToolKit}
+
+\begin{frame}
+\frametitle{Visualization Toolkit (VTK) -- \url{http://www.vtk.org/}}
+
+\begin{columns}
+\begin{column}{5.75cm}
+\begin{itemize}
+        \item Open source, multiplatform
+        \item Supports distributed computation models
+        \item Extensible modular architecture
+        \item Available for 3D computer graphics, image processing and visualization
+        \item Collection of C++ libraries
+\end{itemize}
+\end{column}
+\begin{column}{5.75cm}
+\begin{itemize}
+        \item Leveraged by many applications
+        \item Divided into logical areas
+                \begin{itemize}
+                        \item Filtering
+                        \item Information Visualization
+                        \item  Volume Rendering
+                \end{itemize}
+        \item Cross platform, using OpenGL
+        \item Wrapped in Python, Tool Command Language (Tcl) and Java
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{3.5mm}
+\textcolor{DarkBlue}{\ding{231}} {\bf ParaView} and {\bf VisIt} are end-user applications with support:
+
+\hspace{5mm}
+\textcolor{DarkBlue}{\ding{223}} \textit{parallel} Data Archiving/Reading/Processing/Rendering
+
+\hspace{5mm}
+\textcolor{DarkBlue}{\ding{223}} single node, \textit{Client-Server}, \textit{MPI Cluster} Rendering
 \end{frame}
 
