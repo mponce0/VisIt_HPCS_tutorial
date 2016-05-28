@@ -8,3 +8,5 @@ mynotes
 *.toc
 VisIt_workshop.pdf
 *~
+.nfs*
+gadgets
