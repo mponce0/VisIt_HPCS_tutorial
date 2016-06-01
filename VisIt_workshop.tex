@@ -100,10 +100,7 @@
 \section{VisIt: Basic Visualization Tools}
 \frame{\sectionpage}
 %%%%
-  \colorlet{mystruct}{structure}
-  %\colorlet{structure}{magenta}
-  \usestructuretemplate{\color{structure}}{} \beamertemplateshadingbackground{red!10}{blue!10}
-%%%%
+\basicEnv
  \include{visitBasics}
  % includes the following topics:
  % - accessing data and managing files
@@ -111,7 +108,6 @@
  % - working with operators
  % - interactive tools
  % - plots, selections, exporting
-%%%%
 \resetEnv
 %%%%
 
@@ -120,11 +116,7 @@
 \section{Quantitative analysis with VisIt}
 \frame{\sectionpage}
 %%%%
-  \colorlet{mystruct}{structure}
-  %\colorlet{structure}{magenta}
-  \usestructuretemplate{\color{structure}}{} \beamertemplateshadingbackground{red!20}{blue!20}
-\
-%%%%
+\normalEnv
  \include{quantitativeAnalysis}
  % includes the following topics:
  % - expressions
@@ -141,10 +133,7 @@
 \section{Advanced Visualization Tools}
 \frame{\sectionpage}
 %%%%
-  \colorlet{mystruct}{structure}
-  %\colorlet{structure}{magenta}
-  \usestructuretemplate{\color{structure}}{} \beamertemplateshadingbackground{orange!25}{blue!30}
-%%%%
+\advEnv
  \include{advanced}
  % includes the following topics:
  % - cross-mesh field evaluation (cmfe)
@@ -157,10 +146,7 @@
 \section{VisIt: Proffesional Quality Plots \& Movies Generation}
 \frame{\sectionpage}
 %%%%
-  \colorlet{mystruct}{structure}
-  %\colorlet{structure}{magenta}
-  \usestructuretemplate{\color{structure}}{} \beamertemplateshadingbackground{orange!10}{blue!10}
-%%%%
+\normEnv
  \include{visitMovies}
  % includes the following topics:
  % - making it pretty p.249
@@ -173,10 +159,7 @@
 \section{Distributed visualization with VisIt}
 \frame{\sectionpage}
 %%%%
-  \colorlet{mystruct}{structure}
-  %\colorlet{structure}{magenta}
-  \usestructuretemplate{\color{structure}}{} \beamertemplateshadingbackground{orange!25}{blue!30}
-%%%%
+\advEnv
  \include{distributed}
  % includes the following topics:
  % - overview of client/server visualization p.38
@@ -186,17 +169,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %ar Alex
 \section{Python scripting in VisIt}
+\advEnv
 \frame{\sectionpage}
-%%%%
-  \colorlet{mystruct}{structure}
-  %\colorlet{structure}{magenta}
-  \usestructuretemplate{\color{structure}}{} \beamertemplateshadingbackground{orange!25}{blue!30}
 %%%%
  \include{scripting}
  % includes the following topics:
  % - scripting
-\resetEnv
 %%%%
+\resetEnv
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Summary}
