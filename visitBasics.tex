@@ -253,3 +253,332 @@ under \textcolor{DarkBlue}{Select by}, choose \framebox{\textcolor{DarkGreen}{Pe
 \end{beamerboxesrounded}
 \end{frame}
 
+
+
+
+
+
+
+\subsection{Slices}
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-04}} \hspace{-.85cm}{\bf \textcolor{lightgray}{VisIt}}: Slices}
+\begin{columns}
+\begin{column}{8cm}
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{Slicing Isosurfaces}
+	\textcolor{DarkBlue}{\ding{224}} 
+		\framebox{Operators$_\blacktriangledown$}
+			$\rightarrow$ \framebox{\bf Slicing}
+			$\rightarrow$ \framebox{\bf \textcolor{DarkBlue}{Slice}}
+
+	\textcolor{DarkBlue}{\ding{224}}
+		double-click on [\textcolor{DarkBlue}{Slice}]
+
+	\hspace{3.5mm}
+	\ding{223}
+		try choosing different \textcolor{DarkRed}{axes} 
+
+		\hspace{7.75mm}
+		\& \textcolor{DarkRed}{Project to 2D}
+
+	\hspace{3.5mm}
+	\ding{223}
+		try also the other types of slices
+\end{beamerboxesrounded}
+\end{column}
+\begin{column}{3.5cm}
+	\includegraphics[width=\columnwidth]{figs/visit-pract/VisIt_sliceIsosurf}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\subsection{Vector Fields: Glyphs \& Streamlines}
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-01}} \hspace{-.85cm}{\bf \textcolor{lightgray}{VisIt}}: Vector Field representations -- {Glyphs}}
+\begin{columns}
+\begin{column}{9cm}
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{\textcolor{DarkRed}{\ding{232}} \textcolor{blue}{Glyphs}}
+	\textcolor{DarkBlue}{\ding{224}} 
+		\framebox{Add$_\blacktriangledown$}
+			$\rightarrow$ \framebox{\bf \textcolor{DarkBlue}{Vector}}
+			$\leadsto$ \framebox{\textcolor{DarkGreen}{\it airVfGradient}}
+
+	\hspace{3.5mm}
+	\ding{223}
+		\framebox{Apply} \& \framebox{Dismiss}
+
+	\vspace{2mm}
+	\textcolor{DarkBlue}{\ding{224}} 
+		double-click on [\textcolor{DarkBlue}{Vector}]
+
+	\vspace{1.25mm}
+	\hspace{3.5mm}
+	\ding{223}
+		set \textcolor{DarkBlue}{Vector amount} $\leadsto$ \textcolor{DarkOrange}{1000}
+
+	\vspace{1.25mm}
+	\hspace{3.5mm}
+	\ding{223}
+		more \textit{properties} in [\textcolor{DarkBlue}{Form}] \& [\textcolor{DarkBlue}{Rendering}]
+\end{beamerboxesrounded}
+\end{column}
+\begin{column}{2.75cm}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-01}} \hspace{-.85cm}{\bf \textcolor{lightgray}{VisIt}}: Vector Field representations -- {Streamlines}}
+\begin{columns}
+\begin{column}{9cm}
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{\textcolor{DarkRed}{\ding{232}} \textcolor{blue}{Streamlines}}
+	\textcolor{DarkBlue}{\ding{224}} 
+		\framebox{Add$_\blacktriangledown$}
+			$\rightarrow$ \framebox{\bf \textcolor{DarkBlue}{Streamline}}
+			$\leadsto$ \framebox{\textcolor{DarkGreen}{grad}}
+
+	\vspace{2mm}
+	\textcolor{DarkBlue}{\ding{224}} 
+		double-click on [\textcolor{DarkBlue}{Streamline}]
+
+	\vspace{.75mm}
+	\hspace{3.5mm}
+	\ding{223}
+		set \textcolor{DarkBlue}{Source type} $\leadsto$ \textcolor{DarkOrange}{plane}
+
+	\hspace{3.5mm}
+	\ding{223}
+		increase \textcolor{DarkBlue}{samples}/\textcolor{DarkBlue}{distance} along axes$\leadsto$\textcolor{DarkOrange}{15/20}
+
+	\hspace{3.5mm}
+	\ding{223}
+		\textcolor{DarkBlue}{Streamline direction} $\leadsto$ \textcolor{DarkOrange}{both}
+	\end{beamerboxesrounded}
+\end{column}
+\begin{column}{3.5cm}
+	\includegraphics[width=\columnwidth]{figs/visit-pract/VisIt_streamlines-attribs}
+\end{column}
+\end{columns}
+\begin{columns}
+\begin{column}{11cm}
+	\pause
+	\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
+	\vspace{1.75mm}
+	\hspace{3.5mm}
+	\ding{223}
+		in [\textcolor{DarkBlue}{Appearance}],  \textcolor{DarkBlue}{Drawn as} $\leadsto$ \textcolor{DarkOrange}{Tubes}, w/\textcolor{DarkOrange}{Radius $\leadsto$ 0.005}
+	%\end{beamerboxesrounded}
+
+	\pause
+	%\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
+	\hspace{3.5mm}
+	\ding{223}
+		[\textcolor{DarkBlue}{Data Value}] $\leadsto$ \textcolor{DarkOrange}{Variable} $\rightarrow$ \textcolor{DarkGreen}{\it hardyglobal}
+	%\end{beamerboxesrounded}
+
+	\pause
+	%\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
+	\hspace{3.5mm}
+	\ding{223}
+		[\textcolor{DarkBlue}{Color Table}] $\leadsto$ \textcolor{DarkOrange}{bluehot}
+	\ding{223} \framebox{Apply}
+	\end{beamerboxesrounded}
+
+	\pause
+	\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
+	\hspace{3.5mm}
+	\ding{223}
+		experiment with \textcolor{DarkBlue}{Shown seeds}
+\end{beamerboxesrounded}
+\end{column}
+\begin{column}{2cm}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-01}} \hspace{-.85cm}{\bf \textcolor{lightgray}{VisIt}}: Vector Field representations -- {Streamlines}}
+	\centering
+	%	\includegraphics[width=0.3\columnwidth]{figs/VisIt_streamlines-01a}
+	\includegraphics[width=0.45\columnwidth]{figs/visit-pract/VisIt_streamlines-01b}
+	\includegraphics[width=0.45\columnwidth]{figs/visit-pract/VisIt_streamlines-01c}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-03}} \hspace{-.85cm}{\bf \textcolor{lightgray}{VisIt}}: Slices}
+\begin{columns}
+\begin{column}{6.5cm}
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
+	\textcolor{DarkBlue}{\ding{224}} 
+		\framebox{Add$_\blacktriangledown$}
+			$\rightarrow$ \framebox{\bf \textcolor{DarkBlue}{Pseudocolor}}
+
+			\hspace{5mm}
+			$\leadsto$ \framebox{\textcolor{DarkGreen}{grad\_magnitude}}
+
+	\pause
+	\textcolor{DarkBlue}{\ding{224}} 
+		\framebox{Operator$_\blacktriangledown$}
+			$\rightarrow$ \framebox{\bf Slice}
+			$\leadsto$ \framebox{\textcolor{DarkBlue}{\bf Slicing}}
+
+	\pause
+	\vspace{2mm}
+	\textcolor{DarkBlue}{\ding{224}} 
+		double-click on [\textcolor{DarkBlue}{Slice}]
+
+	\vspace{.75mm}
+	\hspace{3.5mm}
+	\ding{223}
+		select $\leadsto$ \textcolor{DarkOrange}{Z-axis}
+
+	\hspace{3.5mm}
+	\ding{223}
+		unselct \textcolor{DarkBlue}{Project to 2D}
+
+	\hspace{3.5mm}
+	\ding{223}
+		\framebox{Apply}
+
+	\hspace{3.5mm}
+	\ding{223}
+		\framebox{Draw}
+
+	\hspace{3.5mm}
+	\ding{223}
+		\framebox{Hide/Show}
+	\end{beamerboxesrounded}
+\end{column}
+\begin{column}{5.5cm}
+	\includegraphics[width=\columnwidth]{figs/visit-pract/VisIt_slice01a}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\subsection{Volume Rendering}
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-02}} \hspace{-.85cm}{\bf \textcolor{lightgray}{VisIt}}: Volume Rendering}
+\begin{columns}
+\begin{column}{6.25cm}
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
+	\textcolor{DarkBlue}{\ding{224}} 
+		\framebox{Add$_\blacktriangledown$}
+			$\rightarrow$ \framebox{\bf \textcolor{DarkBlue}{Volume}}
+
+			\hspace{5mm}
+			$\leadsto$ \framebox{\textcolor{DarkGreen}{grad\_magnitude}}
+
+	\pause
+	\vspace{2mm}
+	\textcolor{DarkBlue}{\ding{224}} 
+		double-click on [\textcolor{DarkBlue}{Volume}]
+
+	\vspace{.75mm}
+	\hspace{3.5mm}
+	\ding{223}
+		click on \textcolor{DarkOrange}{1D  Transfer Function}
+
+	\hspace{3.5mm}
+	\ding{223}
+		change \textcolor{DarkBlue}{Transfer Fn}/\textcolor{DarkRed}{\bf Opacity}
+	\end{beamerboxesrounded}
+
+	\centering
+	\includegraphics[width=.65\columnwidth]{figs/visit-pract/VisIt_1dTransfFn}
+\end{column}
+\begin{column}{5.5cm}
+\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
+	\hspace{3.5mm}
+	\ding{223}
+		\framebox{Apply}
+
+	\hspace{3.5mm}
+	\ding{223}
+		\framebox{Draw}
+\end{beamerboxesrounded}
+
+	\includegraphics[width=\columnwidth]{figs/visit-pract/VisIt_volRendering01a}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-02}} \hspace{-.85cm}{\bf \textcolor{lightgray}{VisIt}}: \textit{Aesthetics} \& Final Products}
+\begin{columns}
+\begin{column}{5.75cm}
+	\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{\textcolor{DarkRed}{\ding{232}} Legends, axes, ...}
+		\textcolor{DarkBlue}{\ding{224}} 
+		\framebox{Controls}
+			$\rightarrow$ \framebox{\bf \textcolor{DarkBlue}{Annotantion...}}
+	\end{beamerboxesrounded}
+\end{column}
+\begin{column}{5.5cm}
+	\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{\textcolor{DarkRed}{\ding{232}} ``hard-copies'': images, ...}
+		\textcolor{DarkBlue}{\ding{224}} 
+		\framebox{File}
+			$\rightarrow$ \framebox{\bf \textcolor{DarkBlue}{Save Window}}
+	\end{beamerboxesrounded}
+
+\end{column}
+\end{columns}
+
+\vspace{5mm}
+\begin{columns}
+\begin{column}{12cm}
+	\centering
+	\includegraphics[width=.33\columnwidth]{figs/visit-pract/VisIt_mix01}
+	~
+	\includegraphics[width=.33\columnwidth]{figs/visit-pract/VisIt_mix02}
+	~
+	\includegraphics[width=.33\columnwidth]{figs/visit-pract/VisIt_mix03}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+
+\subsection{Controls}
+\begin{frame}
+\frametitle{\href{https://wci.llnl.gov/simulation/computer-codes/visit/}{\includegraphics[height=.85cm]{figs/visit-logos/VisIt-02}} \hspace{-.85cm}{\bf \textcolor{DarkOrange}{VisIt}}: Controls}
+
+\begin{columns}
+\begin{column}{6.5cm}
+	\textcolor{DarkBlue}{$\blacktriangleright$}
+	\framebox{Controls} $\rightarrow$ \framebox{\bf Database Correlations...}
+
+	\hspace{5mm} $\mapsto$ allow to create \textit{correlations} between $\neq$ datasets
+
+	\pause
+	\vspace{3.5mm}
+	\textcolor{DarkBlue}{$\blacktriangleright$}
+	\framebox{Controls} $\rightarrow$ \framebox{\bf Expressions...}
+
+	\hspace{5mm} $\mapsto$ allow to create \textit{expresions} (new quantities) from variables/datasets
+
+	\pause
+	\vspace{3.5mm}
+	\begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{\ding{231} Other interesting ones...}
+		\hspace{2mm}
+		\ding{232} \textcolor{DarkBlue}{Annotation...}
+
+				\hspace{2mm}
+		\ding{232} \textcolor{DarkBlue}{Lighting...}
+
+		\hspace{2mm}
+		\ding{232} \textcolor{DarkBlue}{View...}
+	\end{beamerboxesrounded}
+\end{column}
+\begin{column}{5.25cm}
+	\centering
+	\includegraphics[width=.85\columnwidth]{figs/visit-guis/visit_ctrls}
+\end{column}
+\end{columns}
+\end{frame}

@@ -8,7 +8,7 @@ junk2=.aux .bbl .blg .dvi .log .nav .out .ps .snm .tex.backup .tex.bak .toc Note
 
 .PHONY: clean
 
-$(TARGET): $(SOURCE)
+$(TARGET): $(SOURCE) *tex
 	@pdflatex $(SOURCE)
 	#@bibtex $(NAME)
 	@pdflatex $(SOURCE)
