@@ -1,12 +1,206 @@
+% http://www.visitusers.org/index.php?title=VisIt-tutorial-Python-scripting
+% http://www.visitusers.org/index.php?title=VisIt-tutorial-Advanced-scripting
+
+\defverbatim[colored]\guiless{
+  \begin{lstlisting}[language=bash,basicstyle=\ttfamily,keywordstyle=\color{red}]
+    $ /path/to/VisIt -nowin -cli -s script.py
+  \end{lstlisting}
+}
+
 \begin{frame}{Python scripting in VisIt}{}
-  \begin{itemize}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \footnotesize{
+    \begin{itemize}\setlength{\itemsep}{3mm}
+    \item You can run VisIt Python scripts without the GUI from the command line (analogue of ParaView's
+      'pvbatch')\guiless
+    \item VisIt has a built-in Python 2.7 shell through Controls \ra Launch CLI. It'll start VisIt's
+      Python interpreter in a terminal and attach it to the running VisIt session on a specific port on
+      your laptop with a one-time security key
+    \item Alternatively, Controls \ra Command provides a text editor with Python syntax highlighting and an
+      Execute button that tells VisIt to execute the script
+    \item Also, Controls \ra Command window lets you record your GUI actions into Python code that you can
+      use in your scripts (similar to ParaView's Trace Tool)
+    \item In addition, can use Python in Controls \ra Expressions \ra Python Expression Editor (similar to
+      the Programmable filter in ParaView)
+    \item In addition, can use Python in Controls \ra Query \ra Python Query Editor
+    \end{itemize}}
+\end{frame}
+
+\defverbatim[colored]\drawPseudoColor{
+  \begin{lstlisting}[language=python,basicstyle=\ttfamily,keywordstyle=\color{red}]
+    AddPlot("Pseudocolor", "density")
+    DrawPlots()
+  \end{lstlisting}
+}
+
+\begin{frame}{Adding plots (typing in interactive shell)}
+  Starting from scratch, load \texttt{sineEnvelope.nc}, start Python shell Controls \ra Launch CLI, and
+  type in the following commands:\drawPseudoColor
+  \pause
+  \begin{itemize}\setlength{\itemsep}{3mm}
+  \item Each plot in VisIt has a number of attributes that control the appearance of the plot
+  \item To access them, first create a \emph{plot attributes object} by calling a function
+    PlotNameAttributes, e.g., PseudocolorAttributes(), or VolumeAttributes()
+  \item If changing attributes, pass the object to the SetPlotOptions()
+  \item If setting new defaults, pass the object to SetDefaultPlotOptions()
   \end{itemize}
 \end{frame}
 
-%% http://www.visitusers.org/index.php?title=VisIt-tutorial-Advanced-scripting
+\defverbatim[colored]\setMinMax{
+  \begin{lstlisting}[language=python,basicstyle=\ttfamily,keywordstyle=\color{red}]
+    p = PseudocolorAttributes()
+    p   # will print out all attributes
+    p.min, p.max = 1, 1.1   # colour map range
+    p.minFlag, p.maxFlag = 1, 1   # turn it on
+    SetPlotOptions(p) # set active plot attributes
+    help(SetPlotOptions)
+  \end{lstlisting}
+}
+
+\defverbatim[colored]\cancelMinMax{
+  \begin{lstlisting}[language=python,basicstyle=\ttfamily,keywordstyle=\color{red}]
+    p.minFlag, p.maxFlag = 0,0   # turn it off
+    SetPlotOptions(p)
+  \end{lstlisting}
+}
+
+\defverbatim[colored]\greens{
+  \begin{lstlisting}[language=python,basicstyle=\ttfamily,keywordstyle=\color{red}]
+    p.colorTableName = "Greens" # new colour map
+    SetPlotOptions(p)
+  \end{lstlisting}
+}
+
+\begin{frame}{Probing and setting plot attributes (interactive shell)}
+  Add the following commands:
+  \setMinMax
+  \pause
+  Revert to the original colour map range:
+  \cancelMinMax
+  \pause
+  Pick a different colour map:
+  \greens
+\end{frame}
+
+\defverbatim[colored]\runScript{
+  \begin{lstlisting}[language=python,basicstyle=\scriptsize,keywordstyle=\color{red}]
+    # import os
+    # os.getcwd()
+    # can use relative or absolute paths
+    os.chdir('/Users/razoumov/Documents/teaching/visitWorkshop')
+    # os.chdir("C:\Users\Josh\Desktop\20130216")   # Windows example
+    Source('scriptName.py')
+  \end{lstlisting}
+}
+
+\begin{frame}{Running scriptName.py from inside GUI}
+  \begin{itemize}\setlength{\itemsep}{3mm}
+  \item Option 1: paste the code into Controls \ra Command window and click Execute
+  \item Option 2: inside the shell type \runScript
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Setting attributes before drawing}
+  Now let's start from scratch (\texttt{sineEnvelope.nc} loaded), set an attribute, and draw a plot:
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scratch.py}
+\end{frame}
+
+\begin{frame}{Scripting an operator}
+  With \texttt{sineEnvelope.nc} loaded, run the following:
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{addOperator.py}
+  \pause
+  Now let's produce three single-isosurface plots at density = 0.6, 1.0, 1.4, respectively:
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{threeSurfaces.py}
+\end{frame}
+
+%% \begin{frame}{Saving images to disk}
+%%   Now let's save these images to disk:
+%%   \lstinputlisting[language=python,showstringspaces=false,
+%%     basicstyle=\scriptsize,keywordstyle=\color{red}]{saveSurfaces.py}
+%% \end{frame}
+
+\begin{frame}{Animating camera position: create a plot}
+  With \texttt{sineEnvelope.nc} loaded, draw a single isosurface at density=0.3 in green:
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{oneSurface.py}
+    \pause
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{printView.py}
+\end{frame}
+
+\begin{frame}{Animating camera position: set a view by hand}
+  Create a view by hand by explicitly setting the important attributes:
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{setControlPoint.py}
+\end{frame}
+
+\begin{frame}{Animating camera position: rotate around the vertical axis}
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{rotateAroundVertical.py}
+\end{frame}
+
+\begin{frame}{Animating camera position: fly into the volume and out}
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{flyInOut.py}
+\end{frame}
+
+\begin{frame}{Animating camera position: animate the perspective angle}
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{perspective.py}
+\end{frame}
+
+\begin{frame}{Camera animation: interpolating between control points}
+  First, define a function to copy all attributes from one control point to another
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{copyView.py}
+\end{frame}
+
+\begin{frame}{Camera animation: interpolating between control points}
+  Next, define a function to copy all attributes from one control point to another
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{threeControlPoints.py}
+\end{frame}
+
+\begin{frame}{Camera animation: interpolating between control points}
+  Finally, interpolate between the control point with a small step
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{interpolate.py}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{Automating data analysis}
+\end{frame}
+
+\begin{frame}{Recording GUI actions to python scripts}
+\end{frame}
+
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}
+\begin{frame}{Simple script}
+\end{frame}

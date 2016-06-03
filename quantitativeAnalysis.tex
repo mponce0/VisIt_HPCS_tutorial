@@ -58,8 +58,9 @@
     click Draw
   \item Data here is defined on nodes, not zones
     \pause
-  \item Right click on the vis, select Mode \ra Zone Pick, and click anywhere on the vis -- it'll display
-    8 nodes forming the zone, and their variable values
+  \item Right click on the vis, select Mode \ra Zone Pick (or use a mode button in the vis window
+    toolbar), and click anywhere on the vis -- it'll display 8 nodes forming the zone, and their variable
+    values
     \begin{itemize}\setlength{\itemsep}{0mm}
     \item each pick point leaves a marker that you can look up in the Pick window
     \item the Pick window displays information in tabs arranged by a point
@@ -71,14 +72,13 @@
 \end{frame}
 
 \begin{frame}{Pick}
-  \begin{itemize}\setlength{\itemsep}{2mm}
+  \begin{itemize}\setlength{\itemsep}{3mm}
   \item Selecting Mode \ra Spreadsheet Pick shows a spreadsheet view of one of the dataset variables
     highlighting the picked node
     \pause
   \item Mode \ra Navigate will take you back to default interaction
-  \item There are mode buttons in the toolbar of each vis window
     \pause
-  \item Try loading a time-dependent dataset, e.g., abc
+  \item Try loading a time-dependent dataset, e.g., \texttt{2d0**.vtk}
     \begin{itemize}\setlength{\itemsep}{0mm}
     \item a time slider will become active
     \item depending on the data use either Zone Pick or Node Pick
@@ -105,8 +105,8 @@
     \begin{itemize}\setlength{\itemsep}{0mm}
     \item very useful: Memory Usage
     \item quick ways to probe data: MinMax, NumNodes, NumZones, Average Value, Volume
-    \item Lineout and Pick are also queries (have to enter selection manually)
-    \item Certain queries provide a Time Curve button that calculates the query on each time step and
+    \item Lineout and Pick are also queries (this time enter selection manually)
+    \item certain queries provide a Time Curve button that calculates the query on each time step and
       creates a curve
     \end{itemize}
   \item {\bf Option 2}: use Python Query Editor for custom queries -- we'll cover it in the Scripting
