@@ -109,17 +109,33 @@
   With \texttt{sineEnvelope.nc} loaded, run the following:
   \lstinputlisting[language=python,showstringspaces=false,
     basicstyle=\scriptsize,keywordstyle=\color{red}]{addOperator.py}
-  \pause
-  Now let's produce three single-isosurface plots at density = 0.6, 1.0, 1.4, respectively:
+  \pause\bigskip
+  {\small Now let's produce 3 single-isosurface plots at density = 0.6, 1.0, 1.4, respectively:}
   \lstinputlisting[language=python,showstringspaces=false,
     basicstyle=\scriptsize,keywordstyle=\color{red}]{threeSurfaces.py}
 \end{frame}
 
-%% \begin{frame}{Saving images to disk}
-%%   Now let's save these images to disk:
-%%   \lstinputlisting[language=python,showstringspaces=false,
-%%     basicstyle=\scriptsize,keywordstyle=\color{red}]{saveSurfaces.py}
-%% \end{frame}
+\defverbatim[colored]\writeToDisk{
+  \begin{lstlisting}[language=python,basicstyle=\scriptsize,keywordstyle=\color{red}]
+s = SaveWindowAttributes()
+s.format = s.PNG
+s.fileName = 'someName'
+s.outputToCurrentDirectory = 0   # for some reason this is 'yes'
+s.outputDirectory = "/path/to/directory"
+SetSaveWindowAttributes(s)
+...
+build and display a plot
+...
+name = SaveWindow()   # returns the name of the file it wrote
+  \end{lstlisting}
+}
+
+\begin{frame}{Saving images to disk}
+  \writeToDisk\pause
+  Now let's save the three surfaces to disk:
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{saveSurfaces.py}
+\end{frame}
 
 \begin{frame}{Animating camera position: create a plot}
   With \texttt{sineEnvelope.nc} loaded, draw a single isosurface at density=0.3 in green:
@@ -169,6 +185,18 @@
     basicstyle=\footnotesize,keywordstyle=\color{red}]{interpolate.py}
 \end{frame}
 
+\begin{frame}{Animating an operator: no animation yet}
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{clipStatic.py}
+\end{frame}
+
+\begin{frame}{Animating an operator: exercise}
+  \begin{enumerate}\setlength{\itemsep}{3mm}
+  \item Modify the previous slide's script to animate the clip plane through the volume from z=0 to z=1
+  \item Write each image to disk as PNG
+  \item Use a third-party tool to merge these into a movie
+  \end{enumerate}
+\end{frame}
 
 
 
