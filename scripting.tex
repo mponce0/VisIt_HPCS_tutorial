@@ -174,13 +174,13 @@ name = SaveWindow()   # returns the name of the file it wrote
 \end{frame}
 
 \begin{frame}{Camera animation: interpolating between control points}
-  Next, define a function to copy all attributes from one control point to another
+  Next, set three new control points, based on c0
   \lstinputlisting[language=python,showstringspaces=false,
     basicstyle=\footnotesize,keywordstyle=\color{red}]{threeControlPoints.py}
 \end{frame}
 
 \begin{frame}{Camera animation: interpolating between control points}
-  Finally, interpolate between the control point with a small step
+  Finally, interpolate between the control points with a small step
   \lstinputlisting[language=python,showstringspaces=false,
     basicstyle=\footnotesize,keywordstyle=\color{red}]{interpolate.py}
 \end{frame}
@@ -191,6 +191,7 @@ name = SaveWindow()   # returns the name of the file it wrote
 \end{frame}
 
 \begin{frame}{Animating an operator: exercise}
+  \qquad Try to do the following:\bigskip
   \begin{enumerate}\setlength{\itemsep}{3mm}
   \item Modify the previous slide's script to animate the clip plane through the volume from z=0 to z=1
   \item Write each image to disk as PNG
@@ -198,9 +199,28 @@ name = SaveWindow()   # returns the name of the file it wrote
   \end{enumerate}
 \end{frame}
 
+\defverbatim[colored]\outIdentical{
+  \begin{lstlisting}[language=python,basicstyle=\scriptsize,keywordstyle=\color{red}]
+    density -- Min = 0.0194448 (node 323832 at coord <32, 38, 32>)
+    density -- Max = 1.99497 (node 394939 at coord <39, 49, 39>)
+    (0.019444825127720833, 1.9949746131896973)
+  \end{lstlisting}
+}
 
+\begin{frame}{Scripting queries: pseudocolor}
+  Most queries require an active non-hidden plot ... so, what do they query?
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{queryPseudocolor.py}
+  \begin{block}{}{}\vspace{-3mm}\outIdentical\vspace{-3mm}\end{block}
+\end{frame}
 
-
+\begin{frame}{Scripting queries: contour}
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{queryContour.py}
+  \pause
+  Produces exactly the same query output!\\
+  Why require a plot when we run a query not on the plot but on the original data?...
+\end{frame}
 
 \begin{frame}{Automating data analysis}
 \end{frame}
