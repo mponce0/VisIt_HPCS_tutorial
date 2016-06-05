@@ -86,7 +86,7 @@
     # import os
     # os.getcwd()
     # can use relative or absolute paths
-    os.chdir('/Users/razoumov/Documents/teaching/visitWorkshop')
+    os.chdir('/Users/razoumov/Documents/teaching/visitWorkshop/scripts')
     # os.chdir("C:\Users\Josh\Desktop\20130216")   # Windows example
     Source('scriptName.py')
   \end{lstlisting}
@@ -102,17 +102,17 @@
 \begin{frame}{Setting attributes before drawing}
   Now let's start from scratch (\texttt{sineEnvelope.nc} loaded), set an attribute, and draw a plot:
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\scriptsize,keywordstyle=\color{red}]{scratch.py}
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/scratch.py}
 \end{frame}
 
 \begin{frame}{Scripting an operator}
   With \texttt{sineEnvelope.nc} loaded, run the following:
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\scriptsize,keywordstyle=\color{red}]{addOperator.py}
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/addOperator.py}
   \pause\bigskip
   {\small Now let's produce 3 single-isosurface plots at density = 0.6, 1.0, 1.4, respectively:}
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\scriptsize,keywordstyle=\color{red}]{threeSurfaces.py}
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/threeSurfaces.py}
 \end{frame}
 
 \defverbatim[colored]\writeToDisk{
@@ -134,60 +134,60 @@ name = SaveWindow()   # returns the name of the file it wrote
   \writeToDisk\pause
   Now let's save the three surfaces to disk:
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\scriptsize,keywordstyle=\color{red}]{saveSurfaces.py}
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/saveSurfaces.py}
 \end{frame}
 
 \begin{frame}{Animating camera position: create a plot}
   With \texttt{sineEnvelope.nc} loaded, draw a single isosurface at density=0.3 in green:
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\footnotesize,keywordstyle=\color{red}]{oneSurface.py}
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{scripts/oneSurface.py}
     \pause
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\scriptsize,keywordstyle=\color{red}]{printView.py}
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/printView.py}
 \end{frame}
 
 \begin{frame}{Animating camera position: set a view by hand}
   Create a view by hand by explicitly setting the important attributes:
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\scriptsize,keywordstyle=\color{red}]{setControlPoint.py}
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/setControlPoint.py}
 \end{frame}
 
 \begin{frame}{Animating camera position: rotate around the vertical axis}
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\footnotesize,keywordstyle=\color{red}]{rotateAroundVertical.py}
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{scripts/rotateAroundVertical.py}
 \end{frame}
 
 \begin{frame}{Animating camera position: fly into the volume and out}
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\footnotesize,keywordstyle=\color{red}]{flyInOut.py}
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{scripts/flyInOut.py}
 \end{frame}
 
 \begin{frame}{Animating camera position: animate the perspective angle}
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\footnotesize,keywordstyle=\color{red}]{perspective.py}
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{scripts/perspective.py}
 \end{frame}
 
 \begin{frame}{Camera animation: interpolating between control points}
   First, define a function to copy all attributes from one control point to another
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\footnotesize,keywordstyle=\color{red}]{copyView.py}
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{scripts/copyView.py}
 \end{frame}
 
 \begin{frame}{Camera animation: interpolating between control points}
   Next, set three new control points, based on c0
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\footnotesize,keywordstyle=\color{red}]{threeControlPoints.py}
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{scripts/threeControlPoints.py}
 \end{frame}
 
 \begin{frame}{Camera animation: interpolating between control points}
   Finally, interpolate between the control points with a small step
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\footnotesize,keywordstyle=\color{red}]{interpolate.py}
+    basicstyle=\footnotesize,keywordstyle=\color{red}]{scripts/interpolate.py}
 \end{frame}
 
 \begin{frame}{Animating an operator: no animation yet}
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\scriptsize,keywordstyle=\color{red}]{clipStatic.py}
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/clipStatic.py}
 \end{frame}
 
 \begin{frame}{Animating an operator: exercise}
@@ -210,13 +210,13 @@ name = SaveWindow()   # returns the name of the file it wrote
 \begin{frame}{Scripting queries: pseudocolor}
   Most queries require an active non-hidden plot ... so, what do they query?
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\scriptsize,keywordstyle=\color{red}]{queryPseudocolor.py}
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/queryPseudocolor.py}
   \begin{block}{}{}\vspace{-3mm}\outIdentical\vspace{-3mm}\end{block}
 \end{frame}
 
 \begin{frame}{Scripting queries: contour}
   \lstinputlisting[language=python,showstringspaces=false,
-    basicstyle=\scriptsize,keywordstyle=\color{red}]{queryContour.py}
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/queryContour.py}
   \pause
   Produces exactly the same query output!\\
   Why require a plot when we run a query not on the plot but on the original data?...
