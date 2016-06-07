@@ -1,5 +1,8 @@
-% http://www.visitusers.org/index.php?title=VisIt-tutorial-Python-scripting
-% http://www.visitusers.org/index.php?title=VisIt-tutorial-Advanced-scripting
+\begin{comment}
+http://www.visitusers.org/index.php?title=VisIt-tutorial-Python-scripting
+http://www.visitusers.org/index.php?title=VisIt-tutorial-Advanced-scripting
+http://www.visitusers.org/index.php?title=Exporting_databases
+\end{comment}
 
 \defverbatim[colored]\guiless{
   \begin{lstlisting}[language=bash,basicstyle=\ttfamily,keywordstyle=\color{red}]
@@ -9,64 +12,66 @@
 
 \begin{frame}{Python scripting in VisIt}{}
   \footnotesize{
-    \begin{itemize}\setlength{\itemsep}{3mm}
-    \item You can run VisIt Python scripts without the GUI from the command line (analogue of ParaView's
-      'pvbatch')\guiless
-    \item VisIt has a built-in Python 2.7 shell through Controls \ra Launch CLI. It'll start VisIt's
-      Python interpreter in a terminal and attach it to the running VisIt session on a specific port on
-      your laptop with a one-time security key
-    \item Alternatively, Controls \ra Command provides a text editor with Python syntax highlighting and an
-      Execute button that tells VisIt to execute the script
-    \item Also, Controls \ra Command window lets you record your GUI actions into Python code that you can
-      use in your scripts (similar to ParaView's Trace Tool)
-    \item In addition, can use Python in Controls \ra Expressions \ra Python Expression Editor (similar to
-      the Programmable filter in ParaView)
-    \item In addition, can use Python in Controls \ra Query \ra Python Query Editor
+    \begin{itemize}\setlength{\itemsep}{1mm}
+    \item[\ding{80}] You can run VisIt Python scripts without the GUI from the command line (analogue of
+      ParaView's 'pvbatch')\guiless
+    \item[\ding{80}] VisIt has a built-in Python 2.7 shell through Controls \ra Launch CLI. It'll start
+      VisIt's Python interpreter in a terminal and attach it to the running VisIt session on a specific
+      port on your laptop with a one-time security key
+    \item[\ding{80}] Alternatively, Controls \ra Command provides a text editor with Python syntax
+      highlighting and an Execute button that tells VisIt to execute the script
+    \item {\color{red}Controls \ra Command window lets you record your GUI actions into Python code that
+      you can use in your scripts (similar to ParaView's Trace Tool)}
+    \item {\color{blue}In addition, can use Python in Controls \ra Expressions \ra Python Expression
+      Editor (similar to the Programmable filter in ParaView)}
+    \item {\color{blue}In addition, can use Python in Controls \ra Query \ra Python Query Editor}
     \end{itemize}}
 \end{frame}
 
 \defverbatim[colored]\drawPseudoColor{
-  \begin{lstlisting}[language=python,basicstyle=\ttfamily,keywordstyle=\color{red}]
-    AddPlot("Pseudocolor", "density")
-    DrawPlots()
+  \begin{lstlisting}[language=python,basicstyle=\footnotesize,keywordstyle=\color{red}]
+dir = "/Users/razoumov/Documents/teaching/visitWorkshop/"
+OpenDatabase(dir+"sineEnvelope.nc")  
+AddPlot("Pseudocolor", "density")
+DrawPlots()
   \end{lstlisting}
 }
 
 \begin{frame}{Adding plots (typing in interactive shell)}
-  Starting from scratch, load \texttt{sineEnvelope.nc}, start Python shell Controls \ra Launch CLI, and
-  type in the following commands:\drawPseudoColor
+  Starting from scratch, start Python shell Controls \ra Launch CLI, and
+  type in the following commands {\color{magenta}(adjust the file path!)}:\drawPseudoColor
   \pause
   \begin{itemize}\setlength{\itemsep}{3mm}
   \item Each plot in VisIt has a number of attributes that control the appearance of the plot
   \item To access them, first create a \emph{plot attributes object} by calling a function
-    PlotNameAttributes, e.g., PseudocolorAttributes(), or VolumeAttributes()
+    {\color{magenta}PlotName}Attributes(), e.g., PseudocolorAttributes(), or VolumeAttributes()
   \item If changing attributes, pass the object to the SetPlotOptions()
   \item If setting new defaults, pass the object to SetDefaultPlotOptions()
   \end{itemize}
 \end{frame}
 
 \defverbatim[colored]\setMinMax{
-  \begin{lstlisting}[language=python,basicstyle=\ttfamily,keywordstyle=\color{red}]
-    p = PseudocolorAttributes()
-    p   # will print out all attributes
-    p.min, p.max = 1, 1.1   # colour map range
-    p.minFlag, p.maxFlag = 1, 1   # turn it on
-    SetPlotOptions(p) # set active plot attributes
-    help(SetPlotOptions)
+  \begin{lstlisting}[language=python,basicstyle=\footnotesize,keywordstyle=\color{red}]
+p = PseudocolorAttributes()
+p   # will print out all attributes
+p.min, p.max = 1, 1.1   # colour map range
+p.minFlag, p.maxFlag = 1, 1   # turn it on
+SetPlotOptions(p) # set active plot attributes
+help(SetPlotOptions)
   \end{lstlisting}
 }
 
 \defverbatim[colored]\cancelMinMax{
-  \begin{lstlisting}[language=python,basicstyle=\ttfamily,keywordstyle=\color{red}]
-    p.minFlag, p.maxFlag = 0,0   # turn it off
-    SetPlotOptions(p)
+  \begin{lstlisting}[language=python,basicstyle=\footnotesize,keywordstyle=\color{red}]
+p.minFlag, p.maxFlag = 0,0   # turn it off
+SetPlotOptions(p)
   \end{lstlisting}
 }
 
 \defverbatim[colored]\greens{
-  \begin{lstlisting}[language=python,basicstyle=\ttfamily,keywordstyle=\color{red}]
-    p.colorTableName = "Greens" # new colour map
-    SetPlotOptions(p)
+  \begin{lstlisting}[language=python,basicstyle=\footnotesize,keywordstyle=\color{red}]
+p.colorTableName = "Greens" # new colour map
+SetPlotOptions(p)
   \end{lstlisting}
 }
 
@@ -83,19 +88,19 @@
 
 \defverbatim[colored]\runScript{
   \begin{lstlisting}[language=python,basicstyle=\scriptsize,keywordstyle=\color{red}]
-    # import os
-    # os.getcwd()
-    # can use relative or absolute paths
-    os.chdir('/Users/razoumov/Documents/teaching/visitWorkshop/scripts')
-    # os.chdir("C:\Users\Josh\Desktop\20130216")   # Windows example
-    Source('scriptName.py')
+os.chdir('/Users/razoumov/Documents/teaching/visitWorkshop/scripts')
+# os.chdir('C:\Users\Josh\Desktop\20130216')   # Windows example
+# os.getcwd()   # to check current directory
+Source('scriptName.py')
   \end{lstlisting}
 }
 
 \begin{frame}{Running scriptName.py from inside GUI}
   \begin{itemize}\setlength{\itemsep}{3mm}
   \item Option 1: paste the code into Controls \ra Command window and click Execute
-  \item Option 2: inside the shell type \runScript
+  \item Option 2: inside the Python shell change to the directory containing scripts (can use relative or
+    absolute paths) and run your script
+    \runScript
   \end{itemize}
 \end{frame}
 
@@ -190,12 +195,21 @@ name = SaveWindow()   # returns the name of the file it wrote
     basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/clipStatic.py}
 \end{frame}
 
+\defverbatim[colored]\ffmpeg{
+  \begin{lstlisting}[language=bash,basicstyle=\scriptsize,keywordstyle=\color{red}]
+    ffmpeg -r 10 -i image%02d.png -c:v libx264 -pix_fmt yuv420p \
+       -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" movie.mp4
+  \end{lstlisting}
+}
+
 \begin{frame}{Animating an operator: exercise}
   \qquad Try to do the following:\bigskip
   \begin{enumerate}\setlength{\itemsep}{3mm}
   \item Modify the previous slide's script to animate the clip plane through the volume from z=0 to z=1
   \item Write each image to disk as PNG
-  \item Use a third-party tool to merge these into a movie
+  \item Use a third-party tool to merge these into a movie;
+    e.g., in Linux/MacOSX can use ffmpeg to merge frames into an efficiently compressed
+    Quicktime-compatible MP4\ffmpeg
   \end{enumerate}
 \end{frame}
 
@@ -207,48 +221,58 @@ name = SaveWindow()   # returns the name of the file it wrote
   \end{lstlisting}
 }
 
-\begin{frame}{Scripting queries: pseudocolor}
-  Most queries require an active non-hidden plot ... so, what do they query?
+\begin{frame}{Scripting queries: minMax of Pseudocolor}
   \lstinputlisting[language=python,showstringspaces=false,
     basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/queryPseudocolor.py}
   \begin{block}{}{}\vspace{-3mm}\outIdentical\vspace{-3mm}\end{block}
+  \bigskip
+  Most queries require an active non-hidden plot\\ ... so, do they query the original data or the plot?
 \end{frame}
 
-\begin{frame}{Scripting queries: contour}
+\begin{frame}{Scripting queries: minMax of Contour}
   \lstinputlisting[language=python,showstringspaces=false,
     basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/queryContour.py}
   \pause
   Produces exactly the same query output!\\
-  Why require a plot when we run a query not on the plot but on the original data?...
+  Seems like we query the original 3D data, not the plot.\\
+  $\Rightarrow$ Why require a plot when we run a query not on the plot but on the original data?...
 \end{frame}
 
-\begin{frame}{Automating data analysis}
+\begin{frame}{Scripting queries: weighted variable sum of Slice}
+  Answer: query script authors can make it operate on \emph{anything in the pipeline},
+  so best to check documentation and/or test your script
+  \bigskip
+  \lstinputlisting[language=python,showstringspaces=false,
+    basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/querySlice.py}
 \end{frame}
 
-\begin{frame}{Recording GUI actions to python scripts}
+\begin{frame}{Recording GUI actions to Python scripts}
+  \begin{itemize}\setlength{\itemsep}{3mm}
+  \item Controls \ra Command window lets you convert your GUI workflow into a Python code (similar to
+    ParaView's Trace Tool)
+    \begin{enumerate}\setlength{\itemsep}{1mm}
+    \item delete all plots and databases
+    \item select Controls \ra Command window to open the Commands window
+    \item press Record
+    \item load the file \texttt{sineEnvelope.nc}, add a plot, draw it
+    \item press Stop
+    \item you'll see an automatically generated script in the Commands window
+    \end{enumerate}
+  \item Often the output will be very verbose and contain many unnecessary commands, which can be edited out
+    \begin{itemize}\setlength{\itemsep}{1mm}
+    \item try translating object rotation into Python
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
-\begin{frame}{Simple script}
+\begin{frame}{Exporting databases: maybe}
 \end{frame}
-\begin{frame}{Simple script}
+
+\begin{frame}{Automating data analysis: maybe}
 \end{frame}
-\begin{frame}{Simple script}
+
+\begin{frame}{Python Expression Editor: maybe}
 \end{frame}
-\begin{frame}{Simple script}
-\end{frame}
-\begin{frame}{Simple script}
-\end{frame}
-\begin{frame}{Simple script}
-\end{frame}
-\begin{frame}{Simple script}
-\end{frame}
-\begin{frame}{Simple script}
-\end{frame}
-\begin{frame}{Simple script}
-\end{frame}
-\begin{frame}{Simple script}
-\end{frame}
-\begin{frame}{Simple script}
-\end{frame}
-\begin{frame}{Simple script}
+
+\begin{frame}{Python Query Editor: maybe}
 \end{frame}
