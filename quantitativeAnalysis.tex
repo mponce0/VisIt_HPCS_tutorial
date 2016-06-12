@@ -1,17 +1,7 @@
 \begin{comment}
   http://www.vtk.org/download - Download VTK textbook examples and data - PineRoot.tgz
   http://www.vtk.org/files/release/7.0/VTKLargeData-7.0.0.zip
-
-
-  Cross-mesh field evaluation (CMFE) and database comparison
-  \url{http://www.visitusers.org/index.php?title=Cmfe_overview}
-  \url{http://www.visitusers.org/index.php?title=Cross_Mesh_Field_Evaluation}
-  The CMFE expressions evaluate a field from a donor mesh onto a target mesh to form a new field.
-
-  Data level comparison wizard
-    \url{http://www.visitusers.org/index.php?title=VisIt-tutorial-comparison}
-
-    
+  http://www.visitusers.org/index.php?title=Short_Tutorial
 \end{comment}
 
 \begin{frame}{Quantitative analysis}{}
@@ -21,7 +11,7 @@
   \item Pick: zone/node, spreadsheet, time curves
   \item Lineout
   \item Queries
-  \item Time sliders and database correlations
+  \item Creating new time sliders with database correlations
   \end{itemize}
 \end{frame}
 
@@ -29,11 +19,10 @@
   \begin{itemize}\setlength{\itemsep}{3mm}
   \item Create new derived variables from existing ones
   \item Mathematical expressions can operate on scalars, vectors, tensors
-  \item {\bf Option 1}: use Standar Editor to select existing functions and expressions \\\ding{48}
+  \item {\bf Option 1}: use Standar Editor to select existing functions and expressions \\\quad\ding{48}
     similar to the Calculator filter in ParaView
   \item {\bf Option 2}: use Python Expression Editor - this is an advanced option for working
-    with VTK objects; we'll cover it in the Scripting session \\\ding{48} similar to the Programmable
-    filter in ParaView
+    with VTK objects \\\quad\ding{48} similar to the Programmable filter in ParaView
   \end{itemize}
 \end{frame}
 
@@ -124,13 +113,37 @@
     \item certain queries provide a Time Curve button that calculates the query on each time step and
       creates a curve
     \end{itemize}
-  \item {\bf Option 2}: use Python Query Editor for custom queries -- we'll cover it in the Scripting
-    session
+  \item {\bf Option 2}: use Python Query Editor for custom queries -- this is an advanced topic
   \end{itemize}
 \end{frame}
 
-\begin{frame}{More on time sliders}
+\begin{frame}{Database correlations}
   \begin{itemize}\setlength{\itemsep}{2mm}
-  \item Controls \ra Database correlations
+  \item In VisIt each time-varying database (if more than one loaded) gets its own independent slider
+  \item Sometimes it's useful to compare two time-varying databases, but one would need to set them both
+    to the same moment(s) in time
+  \item Controls \ra Database Correlations lets you do this with a single time slider for both databases,
+    using one of four correlation methods
+    \pause
+  \item Can try creating a single time slider from \texttt{2d0**.vtk} and \texttt{modified0**.vtk}
+    \begin{enumerate}\setlength{\itemsep}{0mm}
+    \item load both databases, and for each draw Pseudocolor \ra Elevate, make them both visible
+    \item verify you can animate either switching the active time slider
+    \item now select Controls \ra Database Correlations, click New, use Correlation Method = Padded
+      Index, select both Sources and move them to Correlated Sources, click Create Database Correlation
+    \item a new active time slider appears that lets you animate both
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Advanced topics in quantitative analysis}
+  \begin{itemize}\setlength{\itemsep}{3mm}
+  \item Cross-mesh field evaluation (CMFE) and database comparison
+%  chapter 12 section 4.0 of usersManual.pdf
+%  \url{http://www.visitusers.org/index.php?title=Cmfe_overview}
+%  \url{http://www.visitusers.org/index.php?title=Cross_Mesh_Field_Evaluation}
+%  The CMFE expressions evaluate a field from a donor mesh onto a target mesh to form a new field.
+  \item   Data level comparison wizard
+%    \url{http://www.visitusers.org/index.php?title=VisIt-tutorial-comparison}
   \end{itemize}
 \end{frame}
