@@ -32,5 +32,5 @@ realclean:
 	done
 
 upload:
-	zip -r -X visit.zip VisIt_workshop.pdf additionalData
+	zip -r -X visit.zip VisIt_workshop.pdf datasets
 	@/bin/mv -f visit.zip ~/Dropbox/Public/visualization
