@@ -30,3 +30,7 @@ realclean:
 	@for ext in $(JUNK); do \
 		rm -v *$${ext};	\
 	done
+
+upload:
+	zip -r -X visit.zip VisIt_workshop.pdf additionalData
+	@/bin/mv -f visit.zip ~/Dropbox/Public/visualization

@@ -16,44 +16,49 @@
 \end{frame}
 
 \begin{frame}{Expressions}
-  \begin{itemize}\setlength{\itemsep}{3mm}
+  \begin{itemize}\setlength{\itemsep}{5mm}
   \item Create new derived variables from existing ones
   \item Mathematical expressions can operate on scalars, vectors, tensors
-  \item {\bf Option 1}: use Standar Editor to select existing functions and expressions \\\quad\ding{48}
-    similar to the Calculator filter in ParaView
-  \item {\bf Option 2}: use Python Expression Editor - this is an advanced option for working
-    with VTK objects \\\quad\ding{48} similar to the Programmable filter in ParaView
+  \item {\bf Option 1}: use Standar Editor to select existing functions and expressions
+    \begin{itemize}
+    \item similar to the Calculator filter in ParaView
+    \end{itemize}
+  \item {\bf Option 2}: use Python Expression Editor - this is an advanced option for working with VTK objects
+    \begin{itemize}
+    \item similar to the Programmable filter in ParaView
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Expressions}
   \begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
     \begin{itemize}\setlength{\itemsep}{0mm}
-    \item Load sineEnvelope.nc, visualize density with Pseudocolor
-    \item Controls \ra Expressions \ra New, set name = densitySquared, type = Scalar Mesh Variable,
-      definition = density$\hat{\,\,\,}$2, click Apply
-    \item Now in the list of variables switch to densitySquared
+    \item Load \hi{noise.silo}, visualize \hi{hardyglobal} with Pseudocolor
+    \item Controls \ra Expressions \ra New, set name = \hi{squared}, type = Scalar Mesh Variable,
+      definition = \hi{hardyglobal$\hat{\,\,\,}$2}, click Apply
+    \item Now in the list of variables switch to \hi{squared}
     \end{itemize}
   \end{beamerboxesrounded}
   \medskip
   \pause
   \begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
     \begin{itemize}\setlength{\itemsep}{0mm}
-    \item Controls \ra Expressions \ra New, set name = densityGradient, type = VectorMeshVariable,
-      definition = gradient(density)
+    \item Controls \ra Expressions \ra New, set name = \hi{gradient}, type = Vector Mesh Variable,
+      definition = \hi{gradient(hardyglobal)}
     \item You can use the dropdown menus to accelerate typing (gradient
       will be found in Insert Function \ra Miscellaneous)
-    \item Add a vector plot to show densityGradient, picking ``Uniformly located troughout the mesh'',
-      displaying 5000 vectors, overlaying them onto a semi-transparent Pseudocolor plot of density
+    \item Add a vector plot to show \hi{gradient}, picking ``Uniformly located troughout the mesh'',
+      displaying 5000 vectors, making them bigger, overlaying onto a semi-transparent Pseudocolor
+      plot of \hi{hardyglobal}
     \end{itemize}
   \end{beamerboxesrounded}
   \medskip
   \pause
   \begin{beamerboxesrounded}[upper=block head,lower=block body,shadow=true]{}
     \begin{itemize}\setlength{\itemsep}{0mm}
-    \item Controls \ra Expressions \ra New, set name = truncatedDensity, type=VectorMeshVariable,
-      definition=max(1,density)
-    \item Now in the list of variables switch to truncatedDensity
+    \item Controls \ra Expressions \ra New, set name = \hi{truncated}, type = Vector Mesh Variable,
+      definition = \hi{max(2,hardyglobal)}
+    \item Now make a Pseudocolor plot of \hi{truncated}
     \end{itemize}
   \end{beamerboxesrounded}
 \end{frame}
@@ -61,11 +66,12 @@
 \begin{frame}{Pick}
   \begin{itemize}\setlength{\itemsep}{3mm}
   \item Interactively pick values inside the visualization window
-  \item Load sineEnvelope.nc, visualize density with Pseudocolor, apply Operators \ra Selection \ra Clip,
+  \item Load \hi{noise.silo}, visualize \hi{hardyglobal} with Pseudocolor, apply Operators \ra Selection \ra Clip,
     click Draw
-  \item Data here is defined on nodes, not zones
+  \item{\color{red} Data here is defined on nodes, not zones}
     \pause
-  \item Right click on the vis, select Mode \ra Zone Pick (or use a mode button in the vis window
+  \item Right click on the visualization, select Mode \ra Zone Pick (or use a mode button in the vis
+        window
     toolbar), and click anywhere on the vis -- it'll display 8 nodes forming the zone, and their variable
     values
     \begin{itemize}\setlength{\itemsep}{0mm}
@@ -81,7 +87,8 @@
 \begin{frame}{Pick}
   \begin{itemize}\setlength{\itemsep}{3mm}
   \item Selecting Mode \ra Spreadsheet Pick shows a spreadsheet view of one of the dataset variables
-    highlighting the picked node
+    highlighting the picked node (i,j,k) and its value of the variable (can't close the spreadsheet
+    window while in this mode!)
     \pause
   \item Mode \ra Navigate will take you back to default interaction
     \pause
