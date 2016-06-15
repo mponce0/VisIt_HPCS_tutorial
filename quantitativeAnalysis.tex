@@ -7,11 +7,11 @@
 \begin{frame}{Quantitative analysis}{}
   \begin{itemize}\setlength{\itemsep}{3mm}
     % - p.233
-  \item Expressions (similar to the Calculator filter in ParaView)
-  \item Pick: zone/node, spreadsheet, time curves
-  \item Lineout
+  \item Expressions (similar to ParaView's Calculator filter)
+  \item Pick modes: zone/node, spreadsheet, time curves
+  \item Lineout mode (similar to ParaView's Plot Over Line filter)
   \item Queries
-  \item Creating new time sliders with database correlations
+  \item Creating new database correlation time sliders
   \end{itemize}
 \end{frame}
 
@@ -21,11 +21,12 @@
   \item Mathematical expressions can operate on scalars, vectors, tensors
   \item {\bf Option 1}: use Standar Editor to select existing functions and expressions
     \begin{itemize}
-    \item similar to the Calculator filter in ParaView
+    \item similar to ParaView's Calculator filter
     \end{itemize}
-  \item {\bf Option 2}: use Python Expression Editor - this is an advanced option for working with VTK objects
+  \item {\bf Option 2}: use Python Expression Editor - this is an advanced option for working with VTK
+    objects
     \begin{itemize}
-    \item similar to the Programmable filter in ParaView
+    \item similar to ParaView's Programmable filter
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -63,7 +64,7 @@
   \end{beamerboxesrounded}
 \end{frame}
 
-\begin{frame}{Pick}
+\begin{frame}{Zone/node pick mode}
   \begin{itemize}\setlength{\itemsep}{3mm}
   \item Interactively pick values inside the visualization window
   \item Load \hi{noise.silo}, visualize \hi{hardyglobal} with Pseudocolor, apply Operators \ra Selection \ra Clip,
@@ -84,7 +85,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Pick}
+\begin{frame}{Spreadsheet pick mode and time curves in the picks}
   \begin{itemize}\setlength{\itemsep}{3mm}
   \item Selecting Mode \ra Spreadsheet Pick shows a spreadsheet view of one of the dataset variables
     highlighting the picked node (i,j,k) and its value of the variable (can't close the spreadsheet
@@ -92,35 +93,40 @@
     \pause
   \item Mode \ra Navigate will take you back to default interaction
     \pause
-  \item Try loading a time-dependent dataset, e.g., \texttt{2d0**.vtk}
+  \item Try loading a time-dependent dataset, e.g., \hi{2d0**.vtk}, and display it in Pseudocolor
     \begin{itemize}\setlength{\itemsep}{0mm}
     \item a time slider will become active
     \item depending on the data use either Zone Pick or Node Pick
-    \item inside the Pick window select ``Create time curve with next pick''
+    \item inside the Pick window in the Time Pick tab select ``Do time curve with next pick''
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Pick: lineout}
+\begin{frame}{Lineout mode}
   \begin{itemize}\setlength{\itemsep}{2mm}
-  \item Extracts 1D curves from 2D data (does not seem to work on 3D datasets)
+  \item Extracts 1D curves from 2D data (unlike ParaView's Plot Over Line filter, does not seem to work
+    on 3D datasets)
   \item Load a 2D dataset or apply Operators \ra Slicing \ra Slice to a 3D dataset
   \item Select Mode \ra Lineout and draw a line -- the profile will be plotted in a new window
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Queries}
-  \begin{itemize}\setlength{\itemsep}{2mm}
+  \begin{itemize}\setlength{\itemsep}{3mm}
   \item Controls \ra Query
   \item {\bf Option 1}: use Standard Queries
     \begin{itemize}\setlength{\itemsep}{0mm}
     \item very useful: Memory Usage
     \item quick ways to probe data: MinMax, NumNodes, NumZones, Average Value, Volume
     \item Lineout and Pick are also queries (this time enter selection manually)
-    \item certain queries provide a Time Curve button that calculates the query on each time step and
-      creates a curve
+    \item certain queries provide a ``Do Time Query'' button that calculates the query on each time step
+      and creates a curve
     \end{itemize}
-  \item {\bf Option 2}: use Python Query Editor for custom queries -- this is an advanced topic
+  \item {\bf Option 2}: use Python Query Editor for custom queries -- this is an advanced topic for
+    working with VTK objects
+    \begin{itemize}\setlength{\itemsep}{0mm}
+    \item instead we'll use Query() in Python scripting (later today)
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -132,7 +138,7 @@
   \item Controls \ra Database Correlations lets you do this with a single time slider for both databases,
     using one of four correlation methods
     \pause
-  \item Can try creating a single time slider from \texttt{2d0**.vtk} and \texttt{modified0**.vtk}
+  \item Can try creating a single time slider from \hi{2d0**.vtk} and \hi{modified0**.vtk}
     \begin{enumerate}\setlength{\itemsep}{0mm}
     \item load both databases, and for each draw Pseudocolor \ra Elevate, make them both visible
     \item verify you can animate either switching the active time slider
@@ -146,11 +152,15 @@
 \begin{frame}{Advanced topics in quantitative analysis}
   \begin{itemize}\setlength{\itemsep}{3mm}
   \item Cross-mesh field evaluation (CMFE) and database comparison
+    \url{http://www.visitusers.org/index.php?title=Cmfe}
+    \begin{itemize}\setlength{\itemsep}{0mm}
+    \item CMFE expressions evaluate a field from a donor mesh onto a target mesh to form a new field
+    \item Different ways to access it: Controls \ra Data-Level Comparisons, Controls \ra Expressions,
+      Python scripting
+    \end{itemize}
 %  chapter 12 section 4.0 of usersManual.pdf
 %  \url{http://www.visitusers.org/index.php?title=Cmfe_overview}
 %  \url{http://www.visitusers.org/index.php?title=Cross_Mesh_Field_Evaluation}
-%  The CMFE expressions evaluate a field from a donor mesh onto a target mesh to form a new field.
-  \item   Data level comparison wizard
 %    \url{http://www.visitusers.org/index.php?title=VisIt-tutorial-comparison}
   \end{itemize}
 \end{frame}

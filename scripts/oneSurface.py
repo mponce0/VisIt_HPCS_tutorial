@@ -1,9 +1,9 @@
 # this is oneSurface.py
 DeleteAllPlots()
-AddPlot('Contour', 'density')
+AddPlot('Contour', 'hardyglobal')
 contAtt = ContourAttributes()
 contAtt.contourMethod = contAtt.Value
-contAtt.contourValue = (0.3)
+contAtt.contourValue = (3.8)
 contAtt.colorType = contAtt.ColorBySingleColor
 contAtt.singleColor = (0, 255, 0, 255)
 SetPlotOptions(contAtt)

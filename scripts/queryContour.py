@@ -1,9 +1,9 @@
 # this is queryContour.py
 DeleteAllPlots()
-AddPlot("Contour","density")
+AddPlot("Contour","hardyglobal")
 contAtts = ContourAttributes()
 contAtts.contourMethod = contAtts.Value
-contAtts.contourValue = (0.3)
+contAtts.contourValue = (3.8)
 SetPlotOptions(contAtts)
 DrawPlots()
 print Query("MinMax")

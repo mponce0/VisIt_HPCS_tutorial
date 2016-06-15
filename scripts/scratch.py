@@ -1,6 +1,6 @@
 # this is scratch.py
 DeleteAllPlots()
-AddPlot("Pseudocolor", "density")
+AddPlot("Pseudocolor", "hardyglobal")
 p = PseudocolorAttributes()
 p.colorTableName = "Oranges"
 SetPlotOptions(p)

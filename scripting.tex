@@ -2,7 +2,7 @@
 http://www.visitusers.org/index.php?title=VisIt-tutorial-Python-scripting
 http://www.visitusers.org/index.php?title=VisIt-tutorial-Advanced-scripting
 http://www.visitusers.org/index.php?title=Exporting_databases
-abc Tips for searching for help
+Tips for searching for help
 http://www.visitusers.org/index.php?title=VisIt-tutorial-Python-scripting#Learning_the_CLI
 \end{comment}
 
@@ -36,9 +36,9 @@ http://www.visitusers.org/index.php?title=VisIt-tutorial-Python-scripting#Learni
 
 \defverbatim[colored]\drawPseudoColor{
   \begin{lstlisting}[language=python,basicstyle=\footnotesize,keywordstyle=\color{red}]
-dir = "/Users/razoumov/Documents/teaching/visitWorkshop/"
-OpenDatabase(dir+"sineEnvelope.nc")  
-AddPlot("Pseudocolor", "density")
+OpenDatabase("/Users/razoumov/Documents/teaching/\
+visitWorkshop/datasets/examples/noise.silo")  
+AddPlot("Pseudocolor", "hardyglobal")
 DrawPlots()
   \end{lstlisting}
 }
@@ -60,7 +60,7 @@ DrawPlots()
   \begin{lstlisting}[language=python,basicstyle=\footnotesize,keywordstyle=\color{red}]
 p = PseudocolorAttributes()
 p   # will print out all attributes
-p.min, p.max = 1, 1.1   # colour map range
+p.min, p.max = 1, 3   # colour map range
 p.minFlag, p.maxFlag = 1, 1   # turn it on
 SetPlotOptions(p) # set active plot attributes
 help(SetPlotOptions)
@@ -82,7 +82,8 @@ SetPlotOptions(p)
 }
 
 \begin{frame}{Probing and setting plot attributes (interactive shell)}
-  Add the following commands:
+  Note the colour map range in the current plot.\\
+  Next, add the following commands:
   \setMinMax
   \pause
   Revert to the original colour map range:
@@ -94,9 +95,9 @@ SetPlotOptions(p)
 
 \defverbatim[colored]\runScript{
   \begin{lstlisting}[language=python,basicstyle=\scriptsize,keywordstyle=\color{red}]
+os.getcwd()   # to check the current directory
 os.chdir('/Users/razoumov/Documents/teaching/visitWorkshop/scripts')
 # os.chdir('C:\Users\Josh\Desktop\20130216')   # Windows example
-# os.getcwd()   # to check current directory
 Source('scriptName.py')
   \end{lstlisting}
 }
@@ -104,26 +105,28 @@ Source('scriptName.py')
 \begin{frame}{Running scriptName.py from inside GUI}
   \begin{itemize}\setlength{\itemsep}{3mm}
   \item Option 1: paste the code into Controls \ra Command window and click Execute
-  \item Option 2: inside the Python shell change to the directory containing scripts (can use relative or
-    absolute paths) and run your script
+  \item Option 2: inside the Python shell change to the directory containing your scripts (can use
+    relative or absolute paths) and run your script
+    \bigskip
     \runScript
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Setting attributes before drawing}
-  Now let's start from scratch (\texttt{sineEnvelope.nc} loaded), set an attribute, and draw a plot:
+  Now let's start from scratch (\hi{noise.silo} loaded), set an attribute, and draw a plot:
   \lstinputlisting[language=python,showstringspaces=false,
     basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/scratch.py}
 \end{frame}
 
 \begin{frame}{Scripting an operator}
-  With \texttt{sineEnvelope.nc} loaded, run the following:
+  With \hi{noise.silo} loaded, run the following:
   \lstinputlisting[language=python,showstringspaces=false,
     basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/addOperator.py}
   \pause\bigskip
-  {\small Now let's produce 3 single-isosurface plots at density = 0.6, 1.0, 1.4, respectively:}
+  {\small Now let's produce 3 single-isosurface plots at \hi{hardyglobal = 2., 3.5, 5.}, respectively:}
   \lstinputlisting[language=python,showstringspaces=false,
     basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/threeSurfaces.py}
+  {\small These images play back, but aren't saved to disk ...}
 \end{frame}
 
 \defverbatim[colored]\writeToDisk{
@@ -149,7 +152,7 @@ name = SaveWindow()   # returns the name of the file it wrote
 \end{frame}
 
 \begin{frame}{Animating camera position: create a plot}
-  With \texttt{sineEnvelope.nc} loaded, draw a single isosurface at density=0.3 in green:
+  With \hi{noise.silo} loaded, draw a single isosurface at \hi{hardyglobal = 3.8} in green:
   \lstinputlisting[language=python,showstringspaces=false,
     basicstyle=\footnotesize,keywordstyle=\color{red}]{scripts/oneSurface.py}
     \pause
@@ -211,7 +214,8 @@ name = SaveWindow()   # returns the name of the file it wrote
 \begin{frame}{Animating an operator: exercise}
   \qquad Try to do the following:\bigskip
   \begin{enumerate}\setlength{\itemsep}{3mm}
-  \item Modify the previous slide's script to animate the clip plane through the volume from z=0 to z=1
+  \item Modify the previous slide's script to animate the clip plane through the volume from bottom to
+    top
   \item Write each image to disk as PNG
   \item Use a third-party tool to merge these into a movie;
     e.g., in Linux/MacOSX can use ffmpeg to merge frames into an efficiently compressed
@@ -220,10 +224,10 @@ name = SaveWindow()   # returns the name of the file it wrote
 \end{frame}
 
 \defverbatim[colored]\outIdentical{
-  \begin{lstlisting}[language=python,basicstyle=\scriptsize,keywordstyle=\color{red}]
-    density -- Min = 0.0194448 (node 323832 at coord <32, 38, 32>)
-    density -- Max = 1.99497 (node 394939 at coord <39, 49, 39>)
-    (0.019444825127720833, 1.9949746131896973)
+  \begin{lstlisting}[language=python,basicstyle=\tiny,keywordstyle=\color{red}]
+hardyglobal -- Min = 1.09554 (node 105026 at coord <0.612245, -10, 7.14286>)
+hardyglobal -- Max = 5.88965 (node 83943 at coord <7.55102, 1.42857, 3.46939>)
+(1.0955432653427124, 5.889651775360107)
   \end{lstlisting}
 }
 
@@ -232,7 +236,10 @@ name = SaveWindow()   # returns the name of the file it wrote
     basicstyle=\scriptsize,keywordstyle=\color{red}]{scripts/queryPseudocolor.py}
   \begin{block}{}{}\vspace{-3mm}\outIdentical\vspace{-3mm}\end{block}
   \bigskip
-  Most queries require an active non-hidden plot\\ ... so, do they query the original data or the plot?
+  \pause
+  Now try commenting out DrawPlots() and running the script again\\
+  \pause
+  This query requires an active non-hidden plot\\ ... so, do we query the original data or the plot?
 \end{frame}
 
 \begin{frame}{Scripting queries: minMax of Contour}
@@ -253,14 +260,14 @@ name = SaveWindow()   # returns the name of the file it wrote
 \end{frame}
 
 \begin{frame}{Recording GUI actions to Python scripts}
-  \begin{itemize}\setlength{\itemsep}{3mm}
+  \begin{itemize}\setlength{\itemsep}{5mm}
   \item Controls \ra Command window lets you convert your GUI workflow into a Python code (similar to
     ParaView's Trace Tool)
     \begin{enumerate}\setlength{\itemsep}{1mm}
     \item delete all plots and databases
     \item select Controls \ra Command window to open the Commands window
     \item press Record
-    \item load the file \texttt{sineEnvelope.nc}, add a plot, draw it
+    \item load the file \hi{noise.silo}, add a plot, draw it
     \item press Stop
     \item you'll see an automatically generated script in the Commands window
     \end{enumerate}

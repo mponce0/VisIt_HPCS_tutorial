@@ -1,9 +1,11 @@
+# this is querySlice.py
 DeleteAllPlots()
-AddPlot("Pseudocolor", "density")
+AddPlot("Pseudocolor", "hardyglobal")
 AddOperator("Slice")
 DrawPlots()
 for i in range(10):
-    position = i + 1
+    position = i*2 - 9
+    print position
     s = SliceAttributes()
     s.axisType = s.XAxis
     s.originType = s.Intercept
