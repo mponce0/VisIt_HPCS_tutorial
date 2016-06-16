@@ -158,15 +158,85 @@
 \subsubsection{Lighting}
 \begin{frame}
 \frametitle{Lighting}
+\vspace{-5mm}
+\begin{columns}[T]
+\begin{column}{6cm}
+\begin{itemize}
+        \item Lighting affects the brightness of plots
+        \item 3D visualizations may require multiple \textit{light sources}
+        \item VisIt allows up to 8 light sources
+        \item Each light source can be positioned and colored
+\end{itemize}
 
+	\pause
+        \textcolor{DarkBlue}{\ding{224}}
+        \framebox{Controls} $\rightarrow$ \framebox{\bf Lighting...}
 
+	\pause
+        \vspace{-1.5mm}
+	\begin{block}{}
+	\begin{itemize}
+	\item ~[Edit]: configure light sources
+	\item ~[Preview]: all sources are visible
+	\end{itemize}
+
+	\centering
+	\vspace{-2mm}
+	\includegraphics[width=.65\columnwidth]{figs/visit-guis/visit_lighting}
+	\end{block}
+\end{column}
+\begin{column}{5.5cm}
+	\pause
+        \includegraphics[width=.85\columnwidth]{figs/visit-guis/visit_lighting2}
+
+	\vspace{-2mm}
+	\begin{block}{}
+	\begin{itemize}
+		\item only the active light can be modified
+		\item once a light has been selected, you can change its props.
+		\item Types of lights: Ambient, Camera, Object Light
+		\item Position, Color, Brightness
+	\end{itemize}
+	\end{block}
+\end{column}
+\end{columns}
 \end{frame}
 
 
 \subsubsection{Views}
 \begin{frame}
 \frametitle{View}
+\vspace{-2.5mm}
+\begin{columns}
+\begin{column}{12.5cm}
+\begin{itemize}
+        \item the ``view'' can be set \textit{interactively} in the viz-window (click and drag, ...)
+        \item or using a ``View Window'', to specify exactly the configuration view
+\end{itemize}
+\end{column}
+\end{columns}
 
+        \pause
+        \textcolor{DarkBlue}{\ding{224}}
+        \framebox{Controls} $\rightarrow$ \framebox{\bf View...}
+
+\vspace{-1mm}
+\begin{columns}[T]
+\begin{column}{3cm}
+        \includegraphics[width=.9\columnwidth]{figs/visit-guis/visit_view2d}
+\end{column}
+\begin{column}{3cm}
+	\includegraphics[width=.9\columnwidth]{figs/visit-guis/visit_view3d}
+\end{column}
+\begin{column}{3cm}
+	\includegraphics[width=.9\columnwidth]{figs/visit-guis/visit_viewAdv}
+\end{column}
+\end{columns}
+
+\begin{itemize}
+	\item ``\textbf{Locked view}'': when the view changes in any locked window, all other locked window readjust to it
+	\item accessible from the [Advanced] tab or ``Lock View'' tool on the viz-window
+\end{itemize}
 
 \end{frame}
 
