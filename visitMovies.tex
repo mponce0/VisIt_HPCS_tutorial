@@ -241,10 +241,162 @@
 \end{frame}
 
 
+\subsubsection{Images/Figures Generation: Plotting}
+\begin{frame}
+\frametitle{Generating ``hardcopies'', aka plotting images and figures}
+\vspace{-2.5mm}
+\begin{columns}
+\begin{column}{5.75cm}
+        \begin{block}{Generating Hardcopies: Figures}
+        \begin{enumerate}
+
+	\item
+        \textcolor{DarkBlue}{\ding{224}}
+        \framebox{File} $\rightarrow$ \framebox{\bf Set Save option...}
+
+	Allows you to control the properties of the image: file type, resolution, naming convention, etc...
+
+	\item
+	\textcolor{DarkBlue}{\ding{224}}
+        \framebox{File} $\rightarrow$ \framebox{\bf Save window}
+
+	Generates the image/file of the currently displayed window.
+
+	\end{enumerate}
+	\end{block}
+\end{column}
+\begin{column}{5cm}
+	\includegraphics[width=\columnwidth]{figs/visit-guis/visit_saveOpts}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+
+
+
 
 \subsection{Movies Generation}
 
 \begin{frame}
 \frametitle{Movie Generation}
 
+\begin{columns}
+\begin{column}{5cm}
+	\begin{block}{Movies \& Animations}
+	\begin{itemize}
+	\item[\ding{224}] sequence in time (\textit{evolution})
+	\item[\ding{224}] motion through space (see \textit{scripting} section)
+	\end{itemize}
+	\end{block}
+\end{column}
+\begin{column}{5cm}
+
+\end{column}
+\end{columns}
 \end{frame}
+
+\begin{frame}
+\frametitle{Basic \textit{timestep} Animation}
+\vspace{-2.5mm}
+\begin{itemize}
+	\item Simplest case: ``static animation'', in which only the \textit{database timestep} changes
+	\item Allows database behaviour over time to be quickly inspected (without the complexity of scripting)
+	\item Controled through \textcolor{DarkBlue}{[VCR]-typeof buttons} on the \textit{time-framming} panel of the main windows
+\end{itemize}
+
+\vspace{.5mm}
+\begin{columns}
+\begin{column}{4.75cm}
+	\pause
+	\centering
+	\textcolor{gray}{\small [Time Slider]}	\\
+	\includegraphics[width=\columnwidth]{figs/visit-guis/visit_VCR}
+	\\
+	\textcolor{gray}{\small [Main Window]}	\\
+	\includegraphics[width=.45\columnwidth]{figs/visit-guis/visit_VCRmenu}
+\end{column}
+\begin{column}{4cm}
+	\pause
+	\centering
+	\textcolor{DarkCyan}{\small [Animation Window]}	\\
+	\includegraphics[width=\columnwidth]{figs/visit-guis/visit_animation}
+	\\
+	\textcolor{DarkBlue}{\ding{224}}
+        \framebox{Controls} $\rightarrow$ \framebox{\bf Animation...}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Movie Wizard}
+\begin{columns}
+\begin{column}{5.75cm}
+	\textcolor{DarkBlue}{\ding{224}}
+	\framebox{File} $\rightarrow$ \framebox{\bf Save Movie...}
+
+        \begin{block}{Guided Movie Generation}
+        \begin{itemize}
+        \item Produce several formats and resolutions, at the same time
+	\item Stereo movies
+	\item Can handle cuurently allocated processors or spawn another VisIt session for movie-generation
+	\item Can use movie templates to assemble complex sequence of frames
+        \end{itemize}
+        \end{block}
+\end{column}
+\begin{column}{5cm}
+	\includegraphics[width=\columnwidth]{figs/visit-guis/visit_movieWizard}
+
+	\includegraphics[width=\columnwidth]{figs/visit-guis/visit_movieCLI}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%
+%\advEnv
+\normalEnv
+
+\begin{frame}
+\frametitle{Keyframing}
+\vspace{-2mm}
+\begin{itemize}
+	\item Advanced form of animation, that allows attributes to change as the animation progresses
+	\item Attributes that can be keyframed: Plots attributes, Database states, View
+	\item Eg. make a plot fade out as the animation progresses, make view slowly change, ...
+\end{itemize}
+\vspace{-1.75mm}
+\begin{columns}[T]
+\begin{column}{5.35cm}
+	\pause
+	\textcolor{DarkBlue}{\ding{224}}
+	\framebox{Controls} $\rightarrow$ \framebox{\bf Keyframing...}
+
+	\includegraphics[width=\columnwidth]{figs/visit-guis/visit_keyframes}
+\end{column}
+\begin{column}{6.5cm}
+	\vspace{-2mm}
+	\pause
+	\begin{itemize}
+	\item[\ding{224}] Enable ``keyframing mode''
+	\item[\ding{224}] Adjust number of frames
+	\item a keyframe is created for each plot attrib.
+	\pause
+	\item Plot attribs. are calculated for each frame
+	\item[\ding{224}] Using the keyframe indicators {\tiny \ding{169}}, set the time range for each attribute
+	%\pause
+	%\item[\ding{224}] time slider: ``Keyframing Animation''
+	%\item Choose the decired \textbf{active} time slider from the pull-down menu
+	\end{itemize}
+\end{column}
+\end{columns}
+\begin{itemize}
+	\pause
+	\item[\ding{224}] \textcolor{DarkGreen}{[time slider]}: ``\textcolor{DarkBlue}{Keyframing Animation}''
+	\item[\ding{224}] Choose the desired \textcolor{DarkGreen}{\textbf{active} time slider} from the pull-down menu
+\end{itemize}
+\end{frame}
+
+\resetEnv
+%%%%%%%%%%%
