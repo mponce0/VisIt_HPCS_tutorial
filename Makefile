@@ -32,9 +32,8 @@ realclean:
 	done
 
 upload:
-	zip -r -X visit.zip VisIt_workshop.pdf datasets  -x datasets/aneurysm_data/*
+	zip -r -X visit.zip VisIt_workshop.pdf scripts datasets/evolution datasets/examples datasets/molecules
 	@/bin/mv -f visit.zip ~/Dropbox/Public/visualization
-
 
 compress:
 	zip -r -X visit.zip VisIt_workshop.pdf datasets  -x datasets/aneurysm_data/*
